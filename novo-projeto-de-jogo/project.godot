@@ -12,7 +12,8 @@ config_version=5
 
 config/name="Novo Projeto de Jogo"
 run/main_scene="uid://pg8oa7effb52"
-config/features=PackedStringArray("4.5", "Mobile")
+config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/bg_color=Color(0.05490196, 0.05490196, 0.05490196, 1)
 config/icon="res://icon.svg"
 
 [rendering]

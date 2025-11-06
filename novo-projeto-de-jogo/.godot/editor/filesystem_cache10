@@ -1,0 +1,10 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1762387642
+icon.svg::CompressedTexture2D::7081393343536532460::1761269672::1761269882::1::::<><><>0<>0<>c01b6b2a83ce2b16dbc2d1c633949e60<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+openxr_action_map.tres::OpenXRActionMap::2899215390799591468::1762371548::0::1::::<><><>0<>0<><>::
+::res://ambientShowroom/::1762371548
+ambientShowroom.tscn::PackedScene::1067247632593169683::1762371548::0::1::::<><><>0<>0<><>::uid://b4y1xch1utcrs::::res://ambientShowroom/xr_origin_3d.gd
+xr_origin_3d.gd::GDScript::4473062047434344116::1761269672::0::1::::<>XROrigin3D<><>0<>0<><>::
+::res://TabletControl/::1761800537
+control.tscn::PackedScene::8569997677498799341::1761795556::0::1::::<><><>0<>0<><>::
+logoManch.png::CompressedTexture2D::2792869508621147303::1761800471::1761800537::1::::<><><>0<>0<>c077ba83fc4095985e6da6c0e8a2153c<>res://.godot/imported/logoManch.png-640d54e6b70177b3f295bbb3f59b30fa.ctex::

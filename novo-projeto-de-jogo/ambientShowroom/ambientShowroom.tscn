@@ -14,25 +14,25 @@ process_mode = 3
 background_mode = 2
 sky = SubResource("Sky_l8vhq")
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=756157938]
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1840428729]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3537996)
 script = ExtResource("1_kbsoy")
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=703162501]
 
-[node name="LeftHandD" type="XRController3D" parent="XROrigin3D"]
+[node name="LeftHandD" type="XRController3D" parent="XROrigin3D" unique_id=1364756706]
 tracker = &"left_hand"
 
-[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+[node name="RightHand" type="XRController3D" parent="XROrigin3D" unique_id=1177727238]
 tracker = &"right_hand"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=397368399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4383287, -0.033327818, -0.08297062)
 mesh = SubResource("BoxMesh_kbsoy")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=1237656496]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="MeshInstance3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="MeshInstance3D" unique_id=1118607561]
 environment = SubResource("Environment_48wbm")

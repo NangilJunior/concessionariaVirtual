@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4sih46mrxls"]
+
+[ext_resource type="PackedScene" uid="uid://d2834t4g8t6sv" path="res://splash_screen/manchstudios_splash_screen.tscn" id="1_3fp2s"]
+[ext_resource type="Script" uid="uid://b0bqe1sojmsvc" path="res://splash_screen/splash_screen_manager.gd" id="1_doibv"]
+[ext_resource type="PackedScene" uid="uid://dudmuy06mijx2" path="res://tablet_control/control.tscn" id="2_asbhi"]
+[ext_resource type="PackedScene" uid="uid://bdvkg7tm5di6g" path="res://splash_screen/manufacturer_splash_screen.tscn" id="2_doibv"]
+
+[node name="SplashScreenManager" type="Control" unique_id=739129734]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_doibv")
+_move_to = ExtResource("2_asbhi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2071982036]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+
+[node name="SplashScreenContainer" type="CenterContainer" parent="." unique_id=543468998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="manchstudiosSplashScreen" parent="SplashScreenContainer" unique_id=139863767 instance=ExtResource("1_3fp2s")]
+layout_mode = 2
+
+[node name="manufacturerSplashScreen" parent="SplashScreenContainer" unique_id=1432688102 instance=ExtResource("2_doibv")]
+layout_mode = 2

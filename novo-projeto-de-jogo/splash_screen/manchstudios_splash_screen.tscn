@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2834t4g8t6sv"]
+
+[ext_resource type="Script" uid="uid://huna27xabucv" path="res://splash_screen/splash_screen.gd" id="1_pic4i"]
+[ext_resource type="Texture2D" uid="uid://bf15fguhtexmd" path="res://tablet_control/logoManch.png" id="2_6bwxi"]
+
+[node name="manchstudiosSplashScreen" type="VBoxContainer" unique_id=139863767]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_pic4i")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=143599672]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("2_6bwxi")

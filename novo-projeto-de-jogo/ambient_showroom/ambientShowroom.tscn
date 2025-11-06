@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://pg8oa7effb52"]
 
-[ext_resource type="Script" uid="uid://b4y1xch1utcrs" path="res://ambientShowroom/xr_origin_3d.gd" id="1_kbsoy"]
+[ext_resource type="Script" uid="uid://b4y1xch1utcrs" path="res://ambient_showroom/xr_origin_3d.gd" id="1_kbsoy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kbsoy"]
 

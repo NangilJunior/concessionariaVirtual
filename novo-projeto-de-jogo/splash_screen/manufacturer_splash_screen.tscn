@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdvkg7tm5di6g"]
+
+[ext_resource type="Script" uid="uid://huna27xabucv" path="res://splash_screen/splash_screen.gd" id="1_w4u1m"]
+[ext_resource type="Texture2D" uid="uid://bwtr4h4wtbgmv" path="res://tablet_control/logoRenault.png" id="2_e0sww"]
+
+[node name="manufacturerSplashScreen" type="VBoxContainer" unique_id=1432688102]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_w4u1m")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=887820667]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("2_e0sww")

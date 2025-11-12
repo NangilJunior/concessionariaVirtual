@@ -1,5 +1,14 @@
-TextureRect
-CenterContainer
+VBoxContainer
+LineEdit
+AspectRatioContainer
+Label
+Container
+HBoxContainer
+TextEdit
+MarginContainer
 ColorRect
 Control
-VBoxContainer
+Button
+TextureRect
+Line2D
+ScrollContainer

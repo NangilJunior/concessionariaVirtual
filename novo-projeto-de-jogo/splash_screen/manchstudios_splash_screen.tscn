@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2834t4g8t6sv"]
 
 [ext_resource type="Script" uid="uid://huna27xabucv" path="res://splash_screen/splash_screen.gd" id="1_pic4i"]
-[ext_resource type="Texture2D" uid="uid://bf15fguhtexmd" path="res://tablet_control/logoManch.png" id="2_6bwxi"]
+[ext_resource type="Texture2D" uid="uid://bjn42i2ymnba5" path="res://tablet_control/assets/logoManch.svg" id="2_6bwxi"]
 
 [node name="manchstudiosSplashScreen" type="VBoxContainer" unique_id=139863767]
 anchors_preset = 15

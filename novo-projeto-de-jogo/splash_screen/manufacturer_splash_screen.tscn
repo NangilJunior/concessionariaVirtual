@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdvkg7tm5di6g"]
 
 [ext_resource type="Script" uid="uid://huna27xabucv" path="res://splash_screen/splash_screen.gd" id="1_w4u1m"]
-[ext_resource type="Texture2D" uid="uid://bwtr4h4wtbgmv" path="res://tablet_control/logoRenault.png" id="2_e0sww"]
+[ext_resource type="Texture2D" uid="uid://b4bdu3auhvdbn" path="res://tablet_control/assets/logoRenault.svg" id="2_e0sww"]
 
 [node name="manufacturerSplashScreen" type="VBoxContainer" unique_id=1432688102]
 anchors_preset = 15

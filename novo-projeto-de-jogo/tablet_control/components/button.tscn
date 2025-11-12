@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp8qg2yfr031y"]
+
+[ext_resource type="FontFile" uid="uid://cbnoikwqrdd74" path="res://assets/fonts/Roboto-Medium.ttf" id="1_jecpg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jecpg"]
+content_margin_left = 80.0
+content_margin_top = 24.0
+content_margin_right = 80.0
+content_margin_bottom = 24.0
+bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlf3x"]
+bg_color = Color(0.31246623, 0.31246606, 0.3124661, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ub7"]
+bg_color = Color(0.14225578, 0.14225581, 0.14225575, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Button" type="Button" unique_id=2114930706]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 95.0
+offset_bottom = 46.0
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = ExtResource("1_jecpg")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_jecpg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qlf3x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e8ub7")
+text = "Entrar"

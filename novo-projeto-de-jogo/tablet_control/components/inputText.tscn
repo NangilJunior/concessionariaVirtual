@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://5xarjloxjkdr"]
+
+[ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="1_kwe6g"]
+[ext_resource type="FontFile" uid="uid://cbnoikwqrdd74" path="res://assets/fonts/Roboto-Medium.ttf" id="2_vq4cj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq4cj"]
+content_margin_left = 20.0
+content_margin_top = 28.0
+content_margin_right = 10.0
+content_margin_bottom = 28.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6154219, 0.615422, 0.6154217, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5766"]
+bg_color = Color(0.84104, 0.84104, 0.84103984, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95984894, 0.85675734, 0.85281515, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="VBoxContainer3" type="VBoxContainer" unique_id=412581454]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=320111779]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_kwe6g")
+theme_override_font_sizes/font_size = 18
+text = "Usuário"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1757097539]
+layout_mode = 2
+tooltip_text = "Digite o usuário"
+theme_override_colors/font_color = Color(0.8153892, 0.8153891, 0.81538904, 1)
+theme_override_colors/font_uneditable_color = Color(0.33660826, 0.33660737, 0.33660755, 0.5019608)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.18717611, 0.18717614, 0.18717608, 1)
+theme_override_fonts/font = ExtResource("2_vq4cj")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_vq4cj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o5766")
+text = "Digite o usuário"

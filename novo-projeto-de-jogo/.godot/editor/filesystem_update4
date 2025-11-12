@@ -1,7 +1,7 @@
 res://tablet_control/control.tscn
 res://openxr_action_map.tres
-res://splash_screen/splash_screen.gd
 res://splash_screen/manchstudios_splash_screen.tscn
 res://splash_screen/manufacturer_splash_screen.tscn
 res://splash_screen/splash_screen_manager.tscn
-res://splash_screen/splash_screen_manager.gd
+res://tablet_control/components/button.tscn
+res://tablet_control/components/inputText.tscn

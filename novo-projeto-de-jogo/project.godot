@@ -11,10 +11,18 @@ config_version=5
 [application]
 
 config/name="Novo Projeto de Jogo"
-run/main_scene="uid://pg8oa7effb52"
+run/main_scene="uid://c4sih46mrxls"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/bg_color=Color(0.05490196, 0.05490196, 0.05490196, 1)
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [rendering]
 

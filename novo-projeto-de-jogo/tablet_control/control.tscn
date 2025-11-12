@@ -1,9 +1,96 @@
-[gd_scene format=3 uid="uid://dudmuy06mijx2"]
+[gd_scene load_steps=9 format=3 uid="uid://dudmuy06mijx2"]
 
-[node name="Control" type="Control" unique_id=1047834676]
-layout_mode = 3
+[ext_resource type="Texture2D" uid="uid://d07ykcdeblpuh" path="res://tablet_control/assets/logo_preta.svg" id="1_aejoo"]
+[ext_resource type="FontFile" uid="uid://cbnoikwqrdd74" path="res://assets/fonts/Roboto-Medium.ttf" id="1_mqvr1"]
+[ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="2_7a38a"]
+[ext_resource type="PackedScene" uid="uid://cp8qg2yfr031y" path="res://tablet_control/components/button.tscn" id="4_7a38a"]
+[ext_resource type="PackedScene" uid="uid://5xarjloxjkdr" path="res://tablet_control/components/inputText.tscn" id="5_hqnh3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7a38a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtoys"]
+font = ExtResource("1_mqvr1")
+font_size = 24
+font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a38a"]
+font = ExtResource("2_7a38a")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="ColorRect" unique_id=900198533]
+material = SubResource("ShaderMaterial_7a38a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=618446715]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1324436275]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=136730439]
+layout_mode = 2
+theme_override_constants/separation = 54
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=787427403]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=2008624302]
+layout_mode = 2
+texture = ExtResource("1_aejoo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=334130968]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1311505289]
+layout_mode = 2
+text = "Olá, seja bem-vindo (a)"
+label_settings = SubResource("LabelSettings_rtoys")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=691544201]
+layout_mode = 2
+text = "Para começar, efetue o seu login:"
+label_settings = SubResource("LabelSettings_7a38a")
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1520412742]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3" unique_id=1839558780 instance=ExtResource("5_hqnh3")]
+layout_mode = 2
+
+[node name="LineEdit2" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3" unique_id=412581454 instance=ExtResource("5_hqnh3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/LineEdit2" index="0" unique_id=320111779]
+text = "Senha"
+
+[node name="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/LineEdit2" index="1" unique_id=1757097539]
+text = "Digite a senha"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1396792464]
+layout_mode = 2
+
+[node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2" unique_id=2114930706 instance=ExtResource("4_7a38a")]
+layout_mode = 2
+
+[editable path="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/LineEdit2"]

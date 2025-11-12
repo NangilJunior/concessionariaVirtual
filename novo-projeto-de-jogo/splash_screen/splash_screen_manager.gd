@@ -2,6 +2,8 @@ extends Control
 
 @export var _move_to: PackedScene
 
+#@export var _initial_delay: float = 1
+
 var _splash_screens: Array[SplashScreen] = []
 
 @onready var _splash_screen_container: CenterContainer = $SplashScreenContainer
@@ -13,6 +15,8 @@ func _ready() -> void:
 	for splash_screen in _splash_screen_container.get_children():
 		splash_screen.hide()
 		_splash_screens.push_back(splash_screen)
+		
+#		await get_tree().create_timer(_initial_delay).timeout
 		
 	_start_splash_screen()
 	

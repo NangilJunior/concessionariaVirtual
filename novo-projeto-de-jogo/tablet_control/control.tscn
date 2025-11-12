@@ -40,9 +40,10 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1324436275]
+[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer" unique_id=1931087085]
 layout_mode = 2
-alignment = 1
+theme_override_constants/margin_left = 288
+theme_override_constants/margin_right = 288
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=136730439]
 layout_mode = 2

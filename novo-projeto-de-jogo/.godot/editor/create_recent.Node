@@ -1,3 +1,4 @@
+MarginContainer
 VBoxContainer
 LineEdit
 AspectRatioContainer
@@ -5,7 +6,6 @@ Label
 Container
 HBoxContainer
 TextEdit
-MarginContainer
 ColorRect
 Control
 Button

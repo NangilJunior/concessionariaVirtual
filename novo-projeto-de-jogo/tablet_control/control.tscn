@@ -1,21 +1,21 @@
 [gd_scene load_steps=9 format=3 uid="uid://dudmuy06mijx2"]
 
 [ext_resource type="Texture2D" uid="uid://d07ykcdeblpuh" path="res://tablet_control/assets/logo_preta.svg" id="1_aejoo"]
-[ext_resource type="FontFile" uid="uid://cbnoikwqrdd74" path="res://assets/fonts/Roboto-Medium.ttf" id="1_mqvr1"]
 [ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="2_7a38a"]
+[ext_resource type="FontFile" uid="uid://bp2rjr10nn1b1" path="res://assets/fonts/Roboto-Light.ttf" id="2_swncl"]
 [ext_resource type="PackedScene" uid="uid://cp8qg2yfr031y" path="res://tablet_control/components/button.tscn" id="4_7a38a"]
 [ext_resource type="PackedScene" uid="uid://5xarjloxjkdr" path="res://tablet_control/components/inputText.tscn" id="5_hqnh3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7a38a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rtoys"]
-font = ExtResource("1_mqvr1")
+font = ExtResource("2_swncl")
 font_size = 24
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7a38a"]
 font = ExtResource("2_7a38a")
-font_size = 28
+font_size = 32
 font_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="ColorRect" unique_id=900198533]
@@ -59,6 +59,7 @@ texture = ExtResource("1_aejoo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=334130968]
 layout_mode = 2
+theme_override_constants/separation = 11
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1311505289]
 layout_mode = 2

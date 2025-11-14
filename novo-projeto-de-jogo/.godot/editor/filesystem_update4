@@ -1,4 +1,2 @@
-res://tablet_control/components/inputText.tscn
-res://openxr_action_map.tres
 res://tablet_control/control.tscn
-res://splash_screen/splash_screen_manager.tscn
+res://openxr_action_map.tres

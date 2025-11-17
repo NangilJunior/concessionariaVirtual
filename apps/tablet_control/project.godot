@@ -1,0 +1,16 @@
+config_version=5
+
+[application]
+config/name="Tablet Control"
+run/main_scene="res://splash_screen/splash_screen_manager.tscn"
+config/features=PackedStringArray("4.6")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[autoload]
+Auth="*res://addons/manch_auth/auth.gd"

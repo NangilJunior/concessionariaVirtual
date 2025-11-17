@@ -1,0 +1,8 @@
+{
+  "admin_base_url": "https://admin.seudominio.com/api",
+  "auth_login_path": "/auth/login",
+  "auth_refresh_path": "/auth/refresh",
+  "processing_base_url": "https://processing.seudominio.com",
+  "processing_upload_path": "/upload",
+  "processing_status_path": "/status"
+}

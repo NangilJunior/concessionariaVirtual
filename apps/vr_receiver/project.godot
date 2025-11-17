@@ -1,0 +1,17 @@
+config_version=5
+
+[application]
+config/name="VR Receiver"
+run/main_scene="res://ambient_showroom/ambientShowroom.tscn"
+config/features=PackedStringArray("4.6")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+
+[xr]
+openxr/enabled=true
+shaders/enabled=true
+
+[autoload]
+Auth="*res://addons/manch_auth/auth.gd"

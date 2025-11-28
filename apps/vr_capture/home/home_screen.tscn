@@ -110,23 +110,23 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Open Project" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=651506697 instance=ExtResource("5_uscf5")]
+[node name="OpenProject" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=651506697 instance=ExtResource("5_uscf5")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_iclfe")
 
-[node name="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project" index="0" unique_id=256251667]
+[node name="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject" index="0" unique_id=256251667]
 theme_override_constants/margin_right = 235
 
-[node name="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project/MarginContainer/VBoxContainer/BoxContainer" parent_id_path=PackedInt32Array(651506697, 1822361181) index="0" unique_id=2015975245]
+[node name="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject/MarginContainer/VBoxContainer/BoxContainer" parent_id_path=PackedInt32Array(651506697, 1822361181) index="0" unique_id=2015975245]
 texture = ExtResource("6_8h2if")
 
-[node name="Label2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="0" unique_id=1418922384]
+[node name="Label2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="0" unique_id=1418922384]
 text = "Meus Projetos"
 label_settings = SubResource("LabelSettings_o0dr2")
 
-[node name="Label3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="1" unique_id=1914410710]
+[node name="Label3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="1" unique_id=1914410710]
 text = "Abrir projetos"
 
-[editable path="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project"]
+[editable path="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject"]

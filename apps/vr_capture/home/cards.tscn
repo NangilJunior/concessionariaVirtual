@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://doknjt0ptwuav" path="res://assets/fonts/Roboto-Black.ttf" id="2_70cox"]
 [ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="3_oe58r"]
 
+[ext_resource type="Script" path="res://home/clickable_card.gd" id="4_script"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70cox"]
 bg_color = Color(0.08468992, 0.08468994, 0.08468988, 1)
 corner_radius_top_left = 8
@@ -24,6 +26,7 @@ font_size = 14
 font_color = Color(0.37036446, 0.3703645, 0.37036446, 1)
 
 [node name="cards" type="PanelContainer" unique_id=1112053758]
+script = ExtResource("4_script")
 offset_right = 228.0
 offset_bottom = 162.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70cox")

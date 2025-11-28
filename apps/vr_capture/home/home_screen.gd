@@ -1,8 +1,8 @@
 extends Control
 
-@onready var _new_project_btn: Button = $CenterContainer/VBoxContainer/NewProjectButton
-@onready var _open_project_btn: Button = $CenterContainer/VBoxContainer/OpenProjectButton
-@onready var _logout_btn: Button = $CenterContainer/VBoxContainer/LogoutButton
+@onready var _new_project_btn: ClickableCard = $"MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/NewProject"
+@onready var _open_project_btn: ClickableCard = $"MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject"
+@onready var _logout_btn: ClickableCard = $"MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/LogoutButton"
 
 func _ready() -> void:
 	_new_project_btn.pressed.connect(_on_new_project_pressed)
@@ -11,13 +11,11 @@ func _ready() -> void:
 
 func _on_new_project_pressed() -> void:
 	print("[HomeScreen] New Project pressed")
-	# For now, go to capture screen as a placeholder for "starting a project"
-	get_tree().change_scene_to_file("res://capture/main.tscn")
+	get_tree().change_scene_to_file("res://home/create_project_screen.tscn")
 
 func _on_open_project_pressed() -> void:
 	print("[HomeScreen] Open Project pressed")
-	# Placeholder
-	pass
+	get_tree().change_scene_to_file("res://home/project_list_screen.tscn")
 
 func _on_logout_pressed() -> void:
 	print("[HomeScreen] Logout pressed")

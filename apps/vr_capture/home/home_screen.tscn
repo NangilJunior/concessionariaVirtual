@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ws8yq7k35md2"]
+[gd_scene load_steps=13 format=3 uid="uid://ws8yq7k35md2"]
 
-[ext_resource type="PackedScene" path="res://login/components/button.tscn" id="1_btn"]
 [ext_resource type="Script" uid="uid://bq7d8bqg4j8ho" path="res://home/home_screen.gd" id="2_script"]
 [ext_resource type="Texture2D" uid="uid://bxov5xrkjnjsa" path="res://assets/logo_preta.svg" id="2_uscf5"]
+[ext_resource type="PackedScene" uid="uid://cxaqh2yao00vq" path="res://home/buttonIcon.tscn" id="2_xyvh2"]
 [ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="3_8h2if"]
 [ext_resource type="FontFile" uid="uid://bp2rjr10nn1b1" path="res://assets/fonts/Roboto-Light.ttf" id="4_xyvh2"]
 [ext_resource type="PackedScene" uid="uid://bgmlm4bw48s8r" path="res://home/cards.tscn" id="5_uscf5"]
+[ext_resource type="Texture2D" uid="uid://c5v3300bco07p" path="res://assets/iconOpenProject.svg" id="6_8h2if"]
+[ext_resource type="FontFile" uid="uid://doknjt0ptwuav" path="res://assets/fonts/Roboto-Black.ttf" id="7_xyvh2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kvtv"]
 font = ExtResource("3_8h2if")
@@ -17,9 +19,20 @@ font = ExtResource("4_xyvh2")
 font_size = 24
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_title"]
-font_size = 48
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iclfe"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 20
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0dr2"]
+font = ExtResource("7_xyvh2")
+font_size = 24
+font_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 
 [node name="HomeScreen" type="ColorRect" unique_id=500425076]
 anchors_preset = 15
@@ -34,7 +47,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 48
@@ -47,73 +59,74 @@ layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=252682929]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1779655945]
 layout_mode = 2
-theme_override_constants/separation = 54
+theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=999398231]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1896847621]
+layout_mode = 2
+alignment = 2
+
+[node name="LogoutButton" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1636804268 instance=ExtResource("2_xyvh2")]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=252682929]
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=999398231]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=768207246]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer" unique_id=768207246]
 layout_mode = 2
 texture = ExtResource("2_uscf5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1791745428]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=1791745428]
 layout_mode = 2
 theme_override_constants/separation = 11
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=643243588]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer" unique_id=643243588]
 layout_mode = 2
 text = "VR Gaussian Splatting Studio"
 label_settings = SubResource("LabelSettings_1kvtv")
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1627046948]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer" unique_id=1627046948]
 layout_mode = 2
 text = "Capture ambientes reais e transforme-os em experiências 3D
  imersivas usando tecnologia de Gaussian Splattin"
 label_settings = SubResource("LabelSettings_ujfsf")
 horizontal_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1770560283]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=1770560283]
 layout_mode = 2
-theme_override_constants/separation = 384
+size_flags_vertical = 3
+theme_override_constants/separation = 34
+alignment = 1
 
-[node name="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=707652795 instance=ExtResource("5_uscf5")]
+[node name="NewProject" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=485828052 instance=ExtResource("5_uscf5")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="VBoxContainer3" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=1669088609 instance=ExtResource("5_uscf5")]
+[node name="Open Project" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=651506697 instance=ExtResource("5_uscf5")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iclfe")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1337922275]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1342.0
-offset_right = 1342.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project" index="0" unique_id=256251667]
+theme_override_constants/margin_right = 235
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=655143132]
-layout_mode = 2
-theme_override_constants/separation = 32
+[node name="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project/MarginContainer/VBoxContainer/BoxContainer" parent_id_path=PackedInt32Array(651506697, 1822361181) index="0" unique_id=2015975245]
+texture = ExtResource("6_8h2if")
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1904514751]
-layout_mode = 2
-text = "VR Capture"
-label_settings = SubResource("LabelSettings_title")
-horizontal_alignment = 1
+[node name="Label2" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="0" unique_id=1418922384]
+text = "Meus Projetos"
+label_settings = SubResource("LabelSettings_o0dr2")
 
-[node name="NewProjectButton" parent="CenterContainer/VBoxContainer" unique_id=2019574248 instance=ExtResource("1_btn")]
-layout_mode = 2
-text = "Novo Projeto"
+[node name="Label3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="1" unique_id=1914410710]
+text = "Abrir projetos"
 
-[node name="OpenProjectButton" parent="CenterContainer/VBoxContainer" unique_id=1772630038 instance=ExtResource("1_btn")]
-layout_mode = 2
-text = "Abrir Projeto Existente"
-
-[node name="LogoutButton" parent="CenterContainer/VBoxContainer" unique_id=733206660 instance=ExtResource("1_btn")]
-layout_mode = 2
-text = "Sair"
+[editable path="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/Open Project"]

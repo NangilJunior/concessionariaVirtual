@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxaqh2yao00vq"]
+
+[ext_resource type="Texture2D" uid="uid://t1ivaakkdbg8" path="res://assets/iconLogOut.svg" id="1_mp0kc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp0kc"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[node name="MarginContainer" type="PanelContainer" unique_id=654372510]
+offset_right = 42.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mp0kc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=88061162]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1995278263]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_mp0kc")
+expand_mode = 1

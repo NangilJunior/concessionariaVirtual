@@ -1,10 +1,12 @@
+VBoxContainer
+MarginContainer
+PanelContainer
+Panel
 HBoxContainer
+TextureRect
+ColorRect
+Container
 Node
 Control
-MarginContainer
-ColorRect
-VBoxContainer
 BoxContainer
-Container
-TextureRect
 Label

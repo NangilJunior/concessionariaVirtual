@@ -4,12 +4,15 @@
 [ext_resource type="FontFile" uid="uid://doknjt0ptwuav" path="res://assets/fonts/Roboto-Black.ttf" id="2_70cox"]
 [ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="3_oe58r"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70cox"]
+bg_color = Color(0.08468992, 0.08468994, 0.08468988, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 20
+shadow_offset = Vector2(0, 8)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cd1h2"]
 font = ExtResource("2_70cox")
@@ -20,37 +23,34 @@ font = ExtResource("3_oe58r")
 font_size = 14
 font_color = Color(0.37036446, 0.3703645, 0.37036446, 1)
 
-[node name="cards" type="Control" unique_id=1669088609]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 350.0
+[node name="cards" type="PanelContainer" unique_id=1112053758]
+offset_right = 228.0
 offset_bottom = 162.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_70cox")
 
-[node name="Panel" type="Panel" parent="." unique_id=632843712]
-layout_mode = 0
-offset_right = 350.0
-offset_bottom = 162.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1358227882]
-layout_mode = 0
-offset_right = 350.0
-offset_bottom = 162.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=256251667]
+layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_right = 240
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=240505014]
 layout_mode = 2
-theme_override_constants/separation = 8
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 16
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1822361181]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/BoxContainer" unique_id=2015975245]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("1_70cox")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1941098198]
 layout_mode = 2

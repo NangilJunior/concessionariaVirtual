@@ -4,3 +4,4 @@ res://openxr_action_map.tres
 res://addons/manch_auth/auth.gd
 res://capture/hud.gd
 res://home/cards.tscn
+res://home/buttonIcon.tscn

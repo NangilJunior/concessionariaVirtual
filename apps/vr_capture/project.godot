@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="VR Capture"
-run/main_scene="res://capture/main.tscn"
+run/main_scene="res://splash_screen/splash_screen_manager.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [autoload]
 
 Auth="*res://addons/manch_auth/auth.gd"
+SyncManager="*res://capture/sync_manager.gd"
 
 [display]
 

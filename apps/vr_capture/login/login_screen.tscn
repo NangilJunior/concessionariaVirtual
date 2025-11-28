@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/logo_preta.svg" id="1_aejoo"]
+[ext_resource type="FontFile" path="res://assets/fonts/Roboto-Bold.ttf" id="2_7a38a"]
+[ext_resource type="FontFile" path="res://assets/fonts/Roboto-Light.ttf" id="2_swncl"]
+[ext_resource type="PackedScene" path="res://login/components/button.tscn" id="4_7a38a"]
+[ext_resource type="PackedScene" path="res://login/components/inputText.tscn" id="5_hqnh3"]
+[ext_resource type="Script" path="res://login/login_button.gd" id="6_login"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7a38a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtoys"]
+font = ExtResource("2_swncl")
+font_size = 24
+font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a38a"]
+font = ExtResource("2_7a38a")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="LoginScreen" type="ColorRect"]
+material = SubResource("ShaderMaterial_7a38a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 288
+theme_override_constants/margin_right = 288
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 54
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_aejoo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Olá, seja bem-vindo (a)"
+label_settings = SubResource("LabelSettings_rtoys")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Para começar, efetue o seu login:"
+label_settings = SubResource("LabelSettings_7a38a")
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Email" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3" instance=ExtResource("5_hqnh3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/Email" index="0"]
+text = "Email"
+
+[node name="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/Email" index="1"]
+placeholder_text = "Digite o email"
+
+[node name="Password" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3" instance=ExtResource("5_hqnh3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/Password" index="0"]
+text = "Senha"
+
+[node name="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/Password" index="1"]
+placeholder_text = "Digite a senha"
+secret = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+horizontal_alignment = 1
+
+[node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2" instance=ExtResource("4_7a38a")]
+layout_mode = 2
+script = ExtResource("6_login")
+
+[editable path="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/Email"]
+[editable path="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3/Password"]

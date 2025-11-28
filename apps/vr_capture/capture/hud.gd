@@ -53,3 +53,21 @@ func set_guidance(text: String) -> void:
 
 func _update_labels() -> void:
 	_frames_label.text = "Frames: %d%s" % [_frames, (" (gravando)" if _recording else "")]
+
+func _on_sync_status_changed(text: String) -> void:
+	# Add a sync label if not exists or update it
+	if not has_node("Control/SyncLabel"):
+		var l = Label.new()
+		l.name = "SyncLabel"
+		$Control.add_child(l)
+		l.position = Vector2(20, 140)
+		l.add_theme_color_override("font_color", Color.CYAN)
+	
+	get_node("Control/SyncLabel").text = "Sync: " + text
+
+func _enter_tree() -> void:
+	# Connect to SyncManager if available (it's an autoload)
+	if has_node("/root/SyncManager"):
+		var sm = get_node("/root/SyncManager")
+		if not sm.status_changed.is_connected(_on_sync_status_changed):
+			sm.status_changed.connect(_on_sync_status_changed)

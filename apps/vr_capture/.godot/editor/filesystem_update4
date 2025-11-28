@@ -1,0 +1,6 @@
+res://login/login_button.gd
+res://home/home_screen.tscn
+res://openxr_action_map.tres
+res://addons/manch_auth/auth.gd
+res://capture/hud.gd
+res://home/cards.tscn

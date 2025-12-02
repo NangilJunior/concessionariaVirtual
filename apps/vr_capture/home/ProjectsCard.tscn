@@ -1,0 +1,165 @@
+[gd_scene load_steps=14 format=3 uid="uid://hfv6j6h0n3dk"]
+
+[ext_resource type="Script" uid="uid://qqy2gaoxgqx3" path="res://home/clickable_card.gd" id="1_xhf5p"]
+[ext_resource type="Texture2D" uid="uid://cp1uvbhut437k" path="res://login/components/image.png" id="2_favon"]
+[ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="3_mod1l"]
+[ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="4_favon"]
+[ext_resource type="PackedScene" uid="uid://bfwy6vt5to2qj" path="res://login/components/button.tscn" id="5_lhl3u"]
+[ext_resource type="Texture2D" uid="uid://d34cx2p8i2uuq" path="res://login/components/date.svg" id="5_mod1l"]
+[ext_resource type="PackedScene" uid="uid://cxaqh2yao00vq" path="res://home/buttonIcon.tscn" id="6_favon"]
+[ext_resource type="Texture2D" uid="uid://ctn8wfxdmtyeb" path="res://login/components/iconDownload.svg" id="8_t52sj"]
+[ext_resource type="Texture2D" uid="uid://m22h61mquin" path="res://login/components/iconTrash.svg" id="9_lhl3u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mod1l"]
+font = ExtResource("3_mod1l")
+font_size = 39
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t52sj"]
+font = ExtResource("4_favon")
+font_size = 25
+font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhl3u"]
+content_margin_left = 80.0
+content_margin_top = 20.0
+content_margin_right = 80.0
+content_margin_bottom = 20.0
+bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mod1l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ClickableCard" type="PanelContainer" unique_id=2123131438]
+clip_contents = true
+custom_minimum_size = Vector2(702, 0)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_xhf5p")
+hover_color_modulate = Color(1.4739742, 1.4739739, 1.4739741, 1)
+metadata/_custom_type_script = "uid://qqy2gaoxgqx3"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=597844878]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1114503063]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=1748109867]
+custom_minimum_size = Vector2(702, 357)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_favon")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=791338302]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer" unique_id=1498657843]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=857759917]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Fiat Chronos"
+label_settings = SubResource("LabelSettings_mod1l")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=861024800]
+layout_mode = 2
+text = "Captura 3D do escritório para treinamento virtual"
+label_settings = SubResource("LabelSettings_t52sj")
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2" unique_id=1229199035]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer3" unique_id=666921415]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer2/MarginContainer3/HBoxContainer" unique_id=610306468]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer3/HBoxContainer/AspectRatioContainer" unique_id=88160014]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("5_mod1l")
+
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer3/HBoxContainer" unique_id=150171107]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "14/01/2024"
+label_settings = SubResource("LabelSettings_t52sj")
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2" unique_id=490906067]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer2" unique_id=1509930290]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CreateProject" parent="VBoxContainer2/MarginContainer2/HBoxContainer" unique_id=1370451158 instance=ExtResource("5_lhl3u")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 39
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhl3u")
+text = "Abrir"
+
+[node name="BacktButton" parent="VBoxContainer2/MarginContainer2/HBoxContainer" unique_id=654372510 instance=ExtResource("6_favon")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mod1l")
+
+[node name="MarginContainer" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton" index="0" unique_id=88061162]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="TextureRect" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton/MarginContainer" index="0" unique_id=1995278263]
+texture = ExtResource("8_t52sj")
+
+[node name="BacktButton2" parent="VBoxContainer2/MarginContainer2/HBoxContainer" unique_id=99728484 instance=ExtResource("6_favon")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mod1l")
+
+[node name="MarginContainer" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton2" index="0" unique_id=88061162]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="TextureRect" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton2/MarginContainer" index="0" unique_id=1995278263]
+texture = ExtResource("9_lhl3u")
+
+[editable path="VBoxContainer2/MarginContainer2/HBoxContainer/CreateProject"]
+[editable path="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton"]
+[editable path="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton2"]

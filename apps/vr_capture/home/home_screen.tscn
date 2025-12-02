@@ -11,12 +11,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kvtv"]
 font = ExtResource("3_8h2if")
-font_size = 32
+font_size = 48
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujfsf"]
 font = ExtResource("4_xyvh2")
-font_size = 24
+font_size = 39
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iclfe"]
@@ -31,7 +31,7 @@ shadow_offset = Vector2(0, 8)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0dr2"]
 font = ExtResource("7_xyvh2")
-font_size = 24
+font_size = 48
 font_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 
 [node name="HomeScreen" type="ColorRect" unique_id=500425076]
@@ -72,7 +72,7 @@ layout_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=252682929]
 layout_mode = 2
-theme_override_constants/separation = 72
+theme_override_constants/separation = 160
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=999398231]
 layout_mode = 2
@@ -127,6 +127,7 @@ text = "Meus Projetos"
 label_settings = SubResource("LabelSettings_o0dr2")
 
 [node name="Label3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="1" unique_id=1914410710]
+theme_override_font_sizes/font_size = 31
 text = "Abrir projetos"
 
 [editable path="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject"]

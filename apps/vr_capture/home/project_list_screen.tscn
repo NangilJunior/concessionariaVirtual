@@ -1,9 +1,35 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://dmaaeb6cqo7d6"]
 
-[ext_resource type="Script" path="res://home/project_list_screen.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://login/components/button.tscn" id="2_btn"]
+[ext_resource type="Script" uid="uid://cno6e7ux5tb65" path="res://home/project_list_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://bfwy6vt5to2qj" path="res://login/components/button.tscn" id="2_btn"]
+[ext_resource type="PackedScene" uid="uid://cxaqh2yao00vq" path="res://home/buttonIcon.tscn" id="3_tcse1"]
+[ext_resource type="Texture2D" uid="uid://ch4fhlubfccln" path="res://assets/iconBack.svg" id="4_t7jpa"]
+[ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="5_uiof2"]
+[ext_resource type="FontFile" uid="uid://bp2rjr10nn1b1" path="res://assets/fonts/Roboto-Light.ttf" id="6_rhbcu"]
+[ext_resource type="PackedScene" uid="uid://hfv6j6h0n3dk" path="res://home/ProjectsCard.tscn" id="7_7ss1g"]
 
-[node name="ProjectListScreen" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_taeay"]
+font = ExtResource("5_uiof2")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qfbnp"]
+font = ExtResource("6_rhbcu")
+font_size = 39
+font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbxbj"]
+content_margin_left = 80.0
+content_margin_top = 20.0
+content_margin_right = 80.0
+content_margin_bottom = 20.0
+bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ProjectListScreen" type="Control" unique_id=21549444]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1489265948]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,45 +46,76 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1112434308]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer2" unique_id=1167900402]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer" unique_id=1880695107]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Meus Projetos"
-horizontal_alignment = 1
+theme_override_constants/separation = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer" unique_id=432532040]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="ProjectList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="BacktButton" parent="MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=654372510 instance=ExtResource("3_tcse1")]
+layout_mode = 2
+
+[node name="TextureRect" parent="MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton/MarginContainer" parent_id_path=PackedInt32Array(654372510, 88061162) index="0" unique_id=1995278263]
+texture = ExtResource("4_t7jpa")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer" unique_id=2112729681]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer" unique_id=816376017]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=546415434]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer" unique_id=539934873]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 11
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/ProjectList"]
+[node name="Label2" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=1990227676]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Nenhum projeto encontrado."
-horizontal_alignment = 1
+text = "Meus Projetos"
+label_settings = SubResource("LabelSettings_taeay")
+autowrap_mode = 3
 
-[node name="BackButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_btn")]
+[node name="Label" type="Label" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer/VBoxContainer" unique_id=1400215746]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "Voltar"
+text = "Gerencie todos os seus ambientes 3d"
+label_settings = SubResource("LabelSettings_qfbnp")
+autowrap_mode = 3
+
+[node name="CreateProject" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer" unique_id=1370451158 instance=ExtResource("2_btn")]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 39
+theme_override_styles/normal = SubResource("StyleBoxFlat_dbxbj")
+text = "Novo Projeto"
+
+[node name="ClickableCard" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=2123131438 instance=ExtResource("7_7ss1g")]
+layout_mode = 2
+
+[editable path="MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton"]
+[editable path="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer/CreateProject"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://e2qol6fo5q6s"]
+
+[ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="1_3umd7"]
+[ext_resource type="StyleBox" uid="uid://qrmtuylxdu2p" path="res://login/components/buttonDefautlWhite.tres" id="2_j42bx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27myd"]
+bg_color = Color(0.8175213, 0.8175213, 0.81752115, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofjhr"]
+bg_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Button" type="Button" unique_id=1370451158]
+offset_right = 290.0
+offset_bottom = 137.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.21590221, 0.21590155, 0.21590167, 1)
+theme_override_colors/font_pressed_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+theme_override_colors/font_hover_color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = ExtResource("1_3umd7")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("2_j42bx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_27myd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofjhr")
+text = "Cancelar"

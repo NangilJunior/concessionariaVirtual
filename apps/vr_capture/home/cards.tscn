@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgmlm4bw48s8r"]
+[gd_scene load_steps=8 format=3 uid="uid://bgmlm4bw48s8r"]
 
 [ext_resource type="Texture2D" uid="uid://bbujpri3jrc67" path="res://assets/iconNewProject.svg" id="1_70cox"]
 [ext_resource type="FontFile" uid="uid://doknjt0ptwuav" path="res://assets/fonts/Roboto-Black.ttf" id="2_70cox"]
 [ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="3_oe58r"]
-
-[ext_resource type="Script" path="res://home/clickable_card.gd" id="4_script"]
+[ext_resource type="Script" uid="uid://qqy2gaoxgqx3" path="res://home/clickable_card.gd" id="4_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70cox"]
 bg_color = Color(0.08468992, 0.08468994, 0.08468988, 1)
@@ -18,18 +17,18 @@ shadow_offset = Vector2(0, 8)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cd1h2"]
 font = ExtResource("2_70cox")
-font_size = 24
+font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_xncyd"]
 font = ExtResource("3_oe58r")
-font_size = 14
+font_size = 31
 font_color = Color(0.37036446, 0.3703645, 0.37036446, 1)
 
 [node name="cards" type="PanelContainer" unique_id=1112053758]
-script = ExtResource("4_script")
 offset_right = 228.0
 offset_bottom = 162.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_70cox")
+script = ExtResource("4_script")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=256251667]
 layout_mode = 2
@@ -42,7 +41,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 32
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1822361181]
 layout_mode = 2
@@ -53,7 +52,6 @@ size_flags_vertical = 0
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("1_70cox")
-expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1941098198]
 layout_mode = 2

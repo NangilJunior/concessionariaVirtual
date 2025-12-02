@@ -1,51 +1,25 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bsqeudd7rsv62"]
 
-[ext_resource type="FontFile" path="res://assets/fonts/Roboto-Regular.ttf" id="1_kwe6g"]
-[ext_resource type="FontFile" path="res://assets/fonts/Roboto-Medium.ttf" id="2_vq4cj"]
+[ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="1_kwe6g"]
+[ext_resource type="StyleBox" uid="uid://xu3pb6x6ka5j" path="res://login/components/inoutTextStyleDefault.tres" id="2_aetqu"]
+[ext_resource type="StyleBox" uid="uid://dj260sk0t7and" path="res://login/components/inoutTextStyleFocus.tres" id="3_481g2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq4cj"]
-content_margin_left = 20.0
-content_margin_top = 28.0
-content_margin_right = 10.0
-content_margin_bottom = 28.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.6154219, 0.615422, 0.6154217, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5766"]
-bg_color = Color(0.96474224, 0.96474224, 0.9647421, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[node name="VBoxContainer3" type="VBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" unique_id=1094770570]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 12
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=224146460]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_kwe6g")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 40
 text = "Usuário"
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1484830748]
 layout_mode = 2
 tooltip_text = "Digite o usuário"
 theme_override_colors/font_color = Color(0.03385322, 0.033853304, 0.03385322, 1)
@@ -54,9 +28,9 @@ theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_colors/selection_color = Color(0.18717611, 0.18717614, 0.18717608, 1)
 theme_override_constants/caret_width = 1
-theme_override_fonts/font = ExtResource("2_vq4cj")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_vq4cj")
-theme_override_styles/focus = SubResource("StyleBoxFlat_o5766")
+theme_override_fonts/font = ExtResource("1_kwe6g")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("2_aetqu")
+theme_override_styles/focus = ExtResource("3_481g2")
 placeholder_text = "Digite o usuário"
 caret_blink = true

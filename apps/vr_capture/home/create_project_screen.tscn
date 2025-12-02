@@ -1,9 +1,28 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://bdwgpxaipjlgg"]
 
-[ext_resource type="Script" path="res://home/create_project_screen.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://login/components/button.tscn" id="2_btn"]
+[ext_resource type="Script" uid="uid://y3r5wes8h7gs" path="res://home/create_project_screen.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://cxaqh2yao00vq" path="res://home/buttonIcon.tscn" id="2_1koy6"]
+[ext_resource type="PackedScene" uid="uid://bfwy6vt5to2qj" path="res://login/components/button.tscn" id="2_btn"]
+[ext_resource type="Texture2D" uid="uid://ch4fhlubfccln" path="res://assets/iconBack.svg" id="3_8tu1x"]
+[ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="4_exa2t"]
+[ext_resource type="FontFile" uid="uid://bp2rjr10nn1b1" path="res://assets/fonts/Roboto-Light.ttf" id="5_w825x"]
+[ext_resource type="PackedScene" uid="uid://bsqeudd7rsv62" path="res://login/components/inputText.tscn" id="6_d05wa"]
+[ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="7_w825x"]
+[ext_resource type="StyleBox" uid="uid://xu3pb6x6ka5j" path="res://login/components/inoutTextStyleDefault.tres" id="8_d05wa"]
+[ext_resource type="StyleBox" uid="uid://dj260sk0t7and" path="res://login/components/inoutTextStyleFocus.tres" id="9_a84un"]
+[ext_resource type="PackedScene" uid="uid://e2qol6fo5q6s" path="res://login/components/buttonWhite.tscn" id="10_d05wa"]
 
-[node name="CreateProjectScreen" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_a84un"]
+font = ExtResource("4_exa2t")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2620u"]
+font = ExtResource("5_w825x")
+font_size = 39
+font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
+
+[node name="NewProject" type="Control" unique_id=589774738]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2043983575]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,39 +39,110 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2089500067]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer" unique_id=258502042]
 layout_mode = 2
-theme_override_constants/separation = 20
-min_size = Vector2(400, 0)
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=835377877]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1251024217]
+layout_mode = 2
+
+[node name="BacktButton" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=654372510 instance=ExtResource("2_1koy6")]
+layout_mode = 2
+
+[node name="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton/MarginContainer" parent_id_path=PackedInt32Array(654372510, 88061162) index="0" unique_id=1995278263]
+texture = ExtResource("3_8tu1x")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=946527908]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1562555597]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=409942024]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer" unique_id=1378155875]
+layout_mode = 2
+text = "Criar Novo Projeto"
+label_settings = SubResource("LabelSettings_a84un")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer" unique_id=1743794554]
+layout_mode = 2
+text = "Inicie um novo projeto de captura 3D. Você poderá começar a capturar imagens usando seu óculos VR."
+label_settings = SubResource("LabelSettings_2620u")
+autowrap_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=1605241759]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Email" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=455845066 instance=ExtResource("6_d05wa")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/Email" index="0" unique_id=224146460]
+text = "Nome do Projeto*"
+
+[node name="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/Email" index="1" unique_id=1484830748]
+placeholder_text = "Digite o nome do projeto"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=693091617]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer" unique_id=1600771768]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Novo Projeto"
-horizontal_alignment = 1
+theme_override_fonts/font = ExtResource("7_w825x")
+theme_override_font_sizes/font_size = 40
+text = "Descrição (opcional)"
 
-[node name="NameInput" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer" unique_id=1809597919]
+custom_minimum_size = Vector2(0, 288)
 layout_mode = 2
-placeholder_text = "Nome do Projeto"
+theme_override_colors/search_result_color = Color(0.3, 0.3, 0.3, 1)
+theme_override_colors/search_result_border_color = Color(0.3, 0.3, 0.3, 0.4)
+theme_override_colors/caret_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_colors/font_color = Color(0.00069390074, 0.0006938965, 0.0006938975, 1)
+theme_override_fonts/font = ExtResource("7_w825x")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("8_d05wa")
+theme_override_styles/focus = ExtResource("9_a84un")
+placeholder_text = "Descreva o objetivo deste projeto..."
+wrap_mode = 1
 
-[node name="DescriptionInput" type="TextEdit" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=29220972]
 layout_mode = 2
-placeholder_text = "Descrição"
+theme_override_constants/separation = 24
+alignment = 2
 
-[node name="CreateButton" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_btn")]
+[node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer" unique_id=1370451158 instance=ExtResource("10_d05wa")]
 layout_mode = 2
-text = "Criar"
 
-[node name="BackButton" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_btn")]
+[node name="CreateProject" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer" unique_id=1028271726 instance=ExtResource("2_btn")]
 layout_mode = 2
-text = "Voltar"
+text = "Criar Projeto"
+
+[editable path="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton"]
+[editable path="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/Email"]

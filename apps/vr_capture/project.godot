@@ -21,8 +21,8 @@ SyncManager="*res://capture/sync_manager.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=800
+window/size/viewport_width=2048
+window/size/viewport_height=1536
 
 [rendering]
 

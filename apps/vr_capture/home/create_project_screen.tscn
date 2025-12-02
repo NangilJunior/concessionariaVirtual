@@ -96,10 +96,11 @@ autowrap_mode = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=1605241759]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 48
 
 [node name="Email" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=455845066 instance=ExtResource("6_d05wa")]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/Email" index="0" unique_id=224146460]
 text = "Nome do Projeto*"
@@ -109,6 +110,7 @@ placeholder_text = "Digite o nome do projeto"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=693091617]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer" unique_id=1600771768]
 layout_mode = 2

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://qqy2gaoxgqx3" path="res://home/clickable_card.gd" id="4_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70cox"]
-bg_color = Color(0.08468992, 0.08468994, 0.08468988, 1)
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmaaeb6cqo7d6"]
+[gd_scene load_steps=15 format=3 uid="uid://dmaaeb6cqo7d6"]
 
 [ext_resource type="Script" uid="uid://cno6e7ux5tb65" path="res://home/project_list_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://bfwy6vt5to2qj" path="res://login/components/button.tscn" id="2_btn"]
@@ -7,6 +7,10 @@
 [ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="5_uiof2"]
 [ext_resource type="FontFile" uid="uid://bp2rjr10nn1b1" path="res://assets/fonts/Roboto-Light.ttf" id="6_rhbcu"]
 [ext_resource type="PackedScene" uid="uid://hfv6j6h0n3dk" path="res://home/ProjectsCard.tscn" id="7_7ss1g"]
+[ext_resource type="Texture2D" uid="uid://bbujpri3jrc67" path="res://assets/iconNewProject.svg" id="7_kvu1v"]
+[ext_resource type="PackedScene" uid="uid://c0851y4h5tsra" path="res://home/CreateProjectWhite.tscn" id="8_whitebtn"]
+[ext_resource type="Texture2D" uid="uid://be02mmxnb5o2r" path="res://assets/iconEmpty.svg" id="9_kvu1v"]
+[ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="11_tcse1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_taeay"]
 font = ExtResource("5_uiof2")
@@ -18,12 +22,12 @@ font = ExtResource("6_rhbcu")
 font_size = 39
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbxbj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkluq"]
 content_margin_left = 80.0
 content_margin_top = 20.0
 content_margin_right = 80.0
 content_margin_bottom = 20.0
-bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
+bg_color = Color(0.09998604, 0.09998598, 0.099985994, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -110,11 +114,14 @@ autowrap_mode = 3
 [node name="CreateProject" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer" unique_id=1370451158 instance=ExtResource("2_btn")]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/h_separation = 32
 theme_override_font_sizes/font_size = 39
-theme_override_styles/normal = SubResource("StyleBoxFlat_dbxbj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wkluq")
 text = "Novo Projeto"
+icon = ExtResource("7_kvu1v")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1718129125]
+[node name="ProjectList" type="ScrollContainer" parent="." unique_id=1718129125]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -126,29 +133,90 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1036423302]
+[node name="MarginContainer" type="MarginContainer" parent="ProjectList" unique_id=1036423302]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 48
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=725222009]
+[node name="HBoxContainer" type="HBoxContainer" parent="ProjectList/MarginContainer" unique_id=725222009]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 64
 
-[node name="ScrollContainer_HBoxContainer#ClickableCard" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=2123131438 instance=ExtResource("7_7ss1g")]
+[node name="ScrollContainer_HBoxContainer#ClickableCard" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=2123131438 instance=ExtResource("7_7ss1g")]
 layout_mode = 2
 
-[node name="ScrollContainer_HBoxContainer#ClickableCard2" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=270662020 instance=ExtResource("7_7ss1g")]
+[node name="ScrollContainer_HBoxContainer#ClickableCard2" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=270662020 instance=ExtResource("7_7ss1g")]
 layout_mode = 2
 
-[node name="ScrollContainer_HBoxContainer#ClickableCard3" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=1290277216 instance=ExtResource("7_7ss1g")]
+[node name="ScrollContainer_HBoxContainer#ClickableCard3" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=1290277216 instance=ExtResource("7_7ss1g")]
 layout_mode = 2
 
-[node name="ScrollContainer_HBoxContainer#ClickableCard4" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=1068150810 instance=ExtResource("7_7ss1g")]
+[node name="ScrollContainer_HBoxContainer#ClickableCard4" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=1068150810 instance=ExtResource("7_7ss1g")]
 layout_mode = 2
+
+[node name="EmptyProject" type="VBoxContainer" parent="." unique_id=1167393699]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -142.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 42
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="EmptyProject" unique_id=2083970371]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="EmptyProject/AspectRatioContainer" unique_id=1363283400]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("9_kvu1v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EmptyProject" unique_id=1033026381]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EmptyProject/VBoxContainer" unique_id=2052470412]
+layout_mode = 2
+text = "Nenhum projeto encontrado"
+label_settings = SubResource("LabelSettings_qfbnp")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="EmptyProject/VBoxContainer" unique_id=2026159484]
+layout_mode = 2
+text = "Comece criando seu primeiro projeto"
+label_settings = SubResource("LabelSettings_taeay")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="EmptyProject" unique_id=220684997]
+layout_mode = 2
+theme_override_constants/margin_left = 684
+theme_override_constants/margin_right = 684
+
+[node name="CreateProject" parent="EmptyProject/MarginContainer" unique_id=1118424117 instance=ExtResource("8_whitebtn")]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.49354625, 0.49354517, 0.4935456, 1)
+theme_override_colors/font_focus_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_colors/font_pressed_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_colors/font_hover_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/h_separation = 32
+theme_override_fonts/font = ExtResource("11_tcse1")
+theme_override_font_sizes/font_size = 40
+text = "Criar Primeiro Projeto"
+icon = ExtResource("7_kvu1v")
+hover_color = Color(0.9384497, 0.9384497, 0.93844944, 1)
+pressed_color = Color(0.86898494, 0.86898494, 0.8689847, 1)
 
 [editable path="MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton"]
 [editable path="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer/CreateProject"]
+[editable path="EmptyProject/MarginContainer/CreateProject"]

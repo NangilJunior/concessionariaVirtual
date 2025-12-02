@@ -1,12 +1,12 @@
-HBoxContainer
-ScrollContainer
+VBoxContainer
+MarginContainer
 AspectRatioContainer
 TextureRect
-MarginContainer
+HBoxContainer
+ScrollContainer
 OpenXRInteractionProfileEditor
 ColorRect
 ClickableCard
-VBoxContainer
 TextEdit
 Control
 PanelContainer

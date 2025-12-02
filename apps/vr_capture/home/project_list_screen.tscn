@@ -114,7 +114,40 @@ theme_override_font_sizes/font_size = 39
 theme_override_styles/normal = SubResource("StyleBoxFlat_dbxbj")
 text = "Novo Projeto"
 
-[node name="ClickableCard" parent="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=2123131438 instance=ExtResource("7_7ss1g")]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1718129125]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -271.0
+offset_bottom = 462.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1036423302]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 48
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=725222009]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 64
+
+[node name="ScrollContainer_HBoxContainer#ClickableCard" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=2123131438 instance=ExtResource("7_7ss1g")]
+layout_mode = 2
+
+[node name="ScrollContainer_HBoxContainer#ClickableCard2" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=270662020 instance=ExtResource("7_7ss1g")]
+layout_mode = 2
+
+[node name="ScrollContainer_HBoxContainer#ClickableCard3" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=1290277216 instance=ExtResource("7_7ss1g")]
+layout_mode = 2
+
+[node name="ScrollContainer_HBoxContainer#ClickableCard4" parent="ScrollContainer/MarginContainer/HBoxContainer" unique_id=1068150810 instance=ExtResource("7_7ss1g")]
 layout_mode = 2
 
 [editable path="MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton"]

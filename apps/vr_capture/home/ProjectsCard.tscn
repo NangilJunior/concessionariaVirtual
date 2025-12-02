@@ -43,17 +43,31 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_root_card"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 20
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clipper"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="ClickableCard" type="PanelContainer" unique_id=2123131438]
-clip_contents = true
 custom_minimum_size = Vector2(702, 0)
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_root_card")
 script = ExtResource("1_xhf5p")
 hover_color_modulate = Color(1.4739742, 1.4739739, 1.4739741, 1)
 metadata/_custom_type_script = "uid://qqy2gaoxgqx3"
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=597844878]
-layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1114503063]
 layout_mode = 2

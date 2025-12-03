@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://hfv6j6h0n3dk"]
 
-[ext_resource type="Script" uid="uid://qqy2gaoxgqx3" path="res://home/clickable_card.gd" id="1_xhf5p"]
+[ext_resource type="Script" path="res://home/ProjectsCard.gd" id="1_xhf5p"]
 [ext_resource type="Texture2D" uid="uid://cp1uvbhut437k" path="res://login/components/image.png" id="2_favon"]
 [ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="3_mod1l"]
 [ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="4_favon"]

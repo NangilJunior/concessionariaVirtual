@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.6", "Mobile")
 
 Auth="*res://addons/manch_auth/auth.gd"
 SyncManager="*res://capture/sync_manager.gd"
+ProjectManager="*res://capture/project_manager.gd"
 
 [display]
 

@@ -30,6 +30,10 @@ func _on_create_pressed() -> void:
 		return
 		
 	print("[CreateProject] Creating project: ", project_name, " - ", project_desc)
+	
+	# Save project
+	ProjectManager.create_project(project_name, project_desc)
+	
 	# Proceed to capture screen
 	get_tree().change_scene_to_file("res://capture/main.tscn")
 

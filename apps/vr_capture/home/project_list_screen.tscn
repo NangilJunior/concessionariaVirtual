@@ -48,6 +48,14 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+border_color = Color(0.473976, 0.473976, 0.473976, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbxbj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="ProjectListScreen" type="Control" unique_id=21549444]
 layout_mode = 3
@@ -152,25 +160,13 @@ horizontal_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 48
+theme_override_constants/margin_left = 128
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ProjectList/MarginContainer" unique_id=725222009]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 64
-
-[node name="ScrollContainer_HBoxContainer#ClickableCard" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=2123131438 instance=ExtResource("7_7ss1g")]
-layout_mode = 2
-
-[node name="ScrollContainer_HBoxContainer#ClickableCard2" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=270662020 instance=ExtResource("7_7ss1g")]
-layout_mode = 2
-
-[node name="ScrollContainer_HBoxContainer#ClickableCard3" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=1290277216 instance=ExtResource("7_7ss1g")]
-layout_mode = 2
-
-[node name="ScrollContainer_HBoxContainer#ClickableCard4" parent="ProjectList/MarginContainer/HBoxContainer" unique_id=1068150810 instance=ExtResource("7_7ss1g")]
-layout_mode = 2
 
 [node name="EmptyProject" type="VBoxContainer" parent="." unique_id=1167393699]
 visible = false
@@ -233,6 +229,70 @@ text = "Criar Primeiro Projeto"
 icon = ExtResource("7_kvu1v")
 hover_color = Color(0.9384497, 0.9384497, 0.93844944, 1)
 pressed_color = Color(0.86898494, 0.86898494, 0.8689847, 1)
+
+[node name="ConfirmationModal" type="ColorRect" parent="." unique_id=998877665]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="PanelContainer" type="PanelContainer" parent="ConfirmationModal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dbxbj")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConfirmationModal/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationModal/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ConfirmationModal/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Confirmar Exclusão"
+label_settings = SubResource("LabelSettings_taeay")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ConfirmationModal/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tem certeza de que deseja apagar este projeto?"
+label_settings = SubResource("LabelSettings_qfbnp")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationModal/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CancelDelete" parent="ConfirmationModal/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("8_whitebtn")]
+unique_id=887766554
+layout_mode = 2
+text = "Cancelar"
+
+[node name="ConfirmDelete" parent="ConfirmationModal/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_btn")]
+unique_id=445566778
+layout_mode = 2
+text = "Apagar"
 
 [editable path="MarginContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/BacktButton"]
 [editable path="MarginContainer2/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer/CreateProject"]

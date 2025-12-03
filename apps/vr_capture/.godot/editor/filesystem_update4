@@ -1,0 +1,5 @@
+res://home/project_list_screen.tscn
+res://openxr_action_map.tres
+res://home/create_project_screen.gd
+res://home/project_list_screen.gd
+res://home/ProjectsCard.gd

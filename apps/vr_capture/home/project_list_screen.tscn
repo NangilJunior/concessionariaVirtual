@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmaaeb6cqo7d6"]
+[gd_scene load_steps=16 format=3 uid="uid://dmaaeb6cqo7d6"]
 
 [ext_resource type="Script" uid="uid://cno6e7ux5tb65" path="res://home/project_list_screen.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://bfwy6vt5to2qj" path="res://login/components/button.tscn" id="2_btn"]
@@ -28,6 +28,22 @@ content_margin_top = 20.0
 content_margin_right = 80.0
 content_margin_bottom = 20.0
 bg_color = Color(0.09998604, 0.09998598, 0.099985994, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcse1"]
+content_margin_left = 80.0
+content_margin_top = 32.0
+content_margin_right = 80.0
+content_margin_bottom = 32.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.473976, 0.473976, 0.473976, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -121,7 +137,6 @@ text = "Novo Projeto"
 icon = ExtResource("7_kvu1v")
 
 [node name="ProjectList" type="ScrollContainer" parent="." unique_id=1718129125]
-visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -158,6 +173,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EmptyProject" type="VBoxContainer" parent="." unique_id=1167393699]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -212,6 +228,7 @@ theme_override_colors/font_hover_pressed_color = Color(0.49411765, 0.49411765, 0
 theme_override_constants/h_separation = 32
 theme_override_fonts/font = ExtResource("11_tcse1")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_tcse1")
 text = "Criar Primeiro Projeto"
 icon = ExtResource("7_kvu1v")
 hover_color = Color(0.9384497, 0.9384497, 0.93844944, 1)

@@ -1,7 +1,7 @@
 72322a848ab928aa5c89f0cb78209805
-::res://::1764658520
+::res://::1764678003
 export_presets.cfg::TextFile::-1::1763430755::0::1::::<><><>0<>0<><>::
-openxr_action_map.tres::OpenXRActionMap::7728008146431954518::1764295212::0::1::::<><><>0<>0<><>::
+openxr_action_map.tres::OpenXRActionMap::7728008146431954518::1764658582::0::1::::<><><>0<>0<><>::
 ::res://addons/::1763428794
 ::res://addons/manch_auth/::1764295212
 auth.gd::GDScript::6890666635751207314::1764295212::0::1::::<>Node<><>0<>0<><>::
@@ -79,7 +79,7 @@ recorder.gd::GDScript::8627591406338567209::1763428794::0::1::::<>Node<><>0<>0<>
 speed_monitor.gd::GDScript::7083022112891939417::1763428794::0::1::::<>Node<><>0<>0<><>::
 sync_manager.gd::GDScript::5504824646943092519::1763571953::0::1::::<>Node<><>0<>0<><>::
 xr_origin_3d.gd::GDScript::8388860413198560011::1763428794::0::1::::<>XROrigin3D<><>0<>0<><>::
-::res://home/::1764658446
+::res://home/::1764659499
 buttonIcon.tscn::PackedScene::6388170198728025446::1764308281::0::1::::<><><>0<>0<><>::uid://t1ivaakkdbg8::::res://assets/iconLogOut.svg<>res://home/clickable_card.gd
 cards.tscn::PackedScene::2833017120778913171::1764658446::0::1::::<><><>0<>0<><>::uid://bbujpri3jrc67::::res://assets/iconNewProject.svg<>uid://doknjt0ptwuav::::res://assets/fonts/Roboto-Black.ttf<>uid://b145u8fxfb54p::::res://assets/fonts/Roboto-Regular.ttf<>uid://qqy2gaoxgqx3::::res://home/clickable_card.gd
 clickable_card.gd::GDScript::1157557282342489546::1764652463::0::1::::ClickableCard<>PanelContainer<><>0<>0<><>::
@@ -91,13 +91,13 @@ home_screen.gd::GDScript::3575743429760672216::1764308574::0::1::::<>Control<><>
 home_screen.tscn::PackedScene::1583360769725107617::1764649624::0::1::::<><><>0<>0<><>::uid://bq7d8bqg4j8ho::::res://home/home_screen.gd<>uid://bxov5xrkjnjsa::::res://assets/logo_preta.svg<>uid://cxaqh2yao00vq::::res://home/buttonIcon.tscn<>uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://bp2rjr10nn1b1::::res://assets/fonts/Roboto-Light.ttf<>uid://bgmlm4bw48s8r::::res://home/cards.tscn<>uid://c5v3300bco07p::::res://assets/iconOpenProject.svg<>uid://doknjt0ptwuav::::res://assets/fonts/Roboto-Black.ttf
 ProjectsCard.tscn::PackedScene::502974731646761080::1764649164::0::1::::<><><>0<>0<><>::uid://qqy2gaoxgqx3::::res://home/clickable_card.gd<>uid://cp1uvbhut437k::::res://login/components/image.png<>uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://b145u8fxfb54p::::res://assets/fonts/Roboto-Regular.ttf<>uid://bfwy6vt5to2qj::::res://login/components/button.tscn<>uid://d34cx2p8i2uuq::::res://login/components/date.svg<>uid://cxaqh2yao00vq::::res://home/buttonIcon.tscn<>uid://ctn8wfxdmtyeb::::res://login/components/iconDownload.svg<>uid://m22h61mquin::::res://login/components/iconTrash.svg
 project_list_screen.gd::GDScript::5716088705917986712::1764645896::0::1::::<>Control<><>0<>0<><>::
-project_list_screen.tscn::PackedScene::8001535418436438005::1764658407::0::1::::<><><>0<>0<><>::uid://cno6e7ux5tb65::::res://home/project_list_screen.gd<>uid://bfwy6vt5to2qj::::res://login/components/button.tscn<>uid://cxaqh2yao00vq::::res://home/buttonIcon.tscn<>uid://ch4fhlubfccln::::res://assets/iconBack.svg<>uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://bp2rjr10nn1b1::::res://assets/fonts/Roboto-Light.ttf<>uid://hfv6j6h0n3dk::::res://home/ProjectsCard.tscn<>uid://bbujpri3jrc67::::res://assets/iconNewProject.svg<>res://home/CreateProjectWhite.tscn<>uid://be02mmxnb5o2r::::res://assets/iconEmpty.svg
+project_list_screen.tscn::PackedScene::8001535418436438005::1764659499::0::1::::<><><>0<>0<><>::uid://cno6e7ux5tb65::::res://home/project_list_screen.gd<>uid://bfwy6vt5to2qj::::res://login/components/button.tscn<>uid://cxaqh2yao00vq::::res://home/buttonIcon.tscn<>uid://ch4fhlubfccln::::res://assets/iconBack.svg<>uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://bp2rjr10nn1b1::::res://assets/fonts/Roboto-Light.ttf<>uid://hfv6j6h0n3dk::::res://home/ProjectsCard.tscn<>uid://bbujpri3jrc67::::res://assets/iconNewProject.svg<>uid://c0851y4h5tsra::::res://home/CreateProjectWhite.tscn<>uid://be02mmxnb5o2r::::res://assets/iconEmpty.svg<>uid://b145u8fxfb54p::::res://assets/fonts/Roboto-Regular.ttf
 ::res://login/::1764649624
 login_button.gd::GDScript::8740869552163205123::1764293726::0::1::::<>Button<><>0<>0<><>::
 login_screen.tscn::PackedScene::8617031091218959983::1764649624::0::1::::<><><>0<>0<><>::uid://bxov5xrkjnjsa::::res://assets/logo_preta.svg<>uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://bp2rjr10nn1b1::::res://assets/fonts/Roboto-Light.ttf<>uid://bfwy6vt5to2qj::::res://login/components/button.tscn<>uid://bsqeudd7rsv62::::res://login/components/inputText.tscn<>uid://dwse3yg616qy2::::res://login/login_button.gd
-::res://login/components/::1764657992
-button.tscn::PackedScene::2784294913640697013::1764643529::0::1::::<><><>0<>0<><>::uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://dol6n40xcvtgn::::res://login/components/buttonDefautl.tres<>uid://bad3xcotb8e86::::res://login/components/buttonPressed.tres<>uid://dd6qm5lk0a4l6::::res://login/components/buttonHover.tres
-buttonDefautl.tres::StyleBoxFlat::8166521022248737677::1764643529::0::1::::<><><>0<>0<><>::
+::res://login/components/::1764658582
+button.tscn::PackedScene::2784294913640697013::1764658582::0::1::::<><><>0<>0<><>::uid://b70n1vqujl8ag::::res://assets/fonts/Roboto-Bold.ttf<>uid://dol6n40xcvtgn::::res://login/components/buttonDefautl.tres<>uid://bad3xcotb8e86::::res://login/components/buttonPressed.tres<>uid://dd6qm5lk0a4l6::::res://login/components/buttonHover.tres
+buttonDefautl.tres::StyleBoxFlat::8166521022248737677::1764658582::0::1::::<><><>0<>0<><>::
 buttonDefautlWhite.tres::StyleBoxFlat::1158879542097901149::1764615749::0::1::::<><><>0<>0<><>::
 buttonHover.tres::StyleBoxFlat::7434818786961525017::1764657992::0::1::::<><><>0<>0<><>::
 buttonPressed.tres::StyleBoxFlat::2394355093552428297::1764657992::0::1::::<><><>0<>0<><>::

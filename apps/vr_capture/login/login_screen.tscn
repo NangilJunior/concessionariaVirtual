@@ -11,12 +11,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_rtoys"]
 font = ExtResource("2_swncl")
-font_size = 39
+font_size = 21
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7a38a"]
 font = ExtResource("2_7a38a")
-font_size = 48
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 
 [node name="LoginScreen" type="ColorRect" unique_id=208795048]
@@ -36,22 +36,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 26
 
 [node name="HBoxContainer" type="MarginContainer" parent="MarginContainer" unique_id=956863556]
 layout_mode = 2
-theme_override_constants/margin_left = 412
-theme_override_constants/margin_top = 139
-theme_override_constants/margin_right = 412
-theme_override_constants/margin_bottom = 139
+theme_override_constants/margin_left = 226
+theme_override_constants/margin_top = 76
+theme_override_constants/margin_right = 226
+theme_override_constants/margin_bottom = 76
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1957201209]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 128
+theme_override_constants/separation = 70
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=962044883]
 layout_mode = 2
@@ -79,7 +79,7 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1443063073]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 13
 
 [node name="Email" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer3" unique_id=724401282 instance=ExtResource("5_hqnh3")]
 layout_mode = 2
@@ -102,6 +102,11 @@ secret = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3" unique_id=765662277]
 layout_mode = 2
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.1, 1)
+horizontal_alignment = 1
 
 [node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer3/VBoxContainer2" unique_id=991003266 instance=ExtResource("4_7a38a")]
 layout_mode = 2

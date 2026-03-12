@@ -12,20 +12,19 @@ signal download_requested(project_id)
 @onready var _download_btn = $VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton
 @onready var _delete_btn = $VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton2
 
+@onready var _status_tag = %StatusTag
+@onready var _status_label = %StatusLabel
+@onready var _status_bg = %StatusTag.get_theme_stylebox("panel") # Access the stylebox to change color
+
 var _project_data: Dictionary = {}
 
 func _ready() -> void:
 	super._ready()
 	
 	# Connect button signals
-	# Note: We need to access the actual button inside the instanced scenes if they are wrapped
-	# But based on the scene tree, CreateProject is a Button (from button.tscn)
-	# BacktButton and BacktButton2 are ButtonIcon (PanelContainer with clickable_card.gd)
-	
 	if _open_btn.has_signal("pressed"):
 		_open_btn.pressed.connect(_on_open_pressed)
 	
-	# For ButtonIcon instances (BacktButton), they use clickable_card.gd which emits "pressed"
 	if _download_btn.has_signal("pressed"):
 		_download_btn.pressed.connect(_on_download_pressed)
 		
@@ -40,24 +39,60 @@ func setup(data: Dictionary) -> void:
 	if "description" in data:
 		_desc_label.text = data["description"]
 	if "created_at" in data:
-		# Format date if needed, for now just show as is or simple format
 		_date_label.text = data["created_at"].split("T")[0] 
 	
-	# Image handling
-	# For now use default, or load if path exists
-	if "local_path" in data and data["local_path"] != "":
-		# Try to load first frame or thumbnail
-		pass
+	# Status Tag Logic
+	var status = data.get("status", "created")
+	_update_status_tag(status)
 		
 	_update_buttons_state()
 
+func _update_status_tag(status: String) -> void:
+	# Default hidden
+	_status_tag.visible = false
+	
+	if status == "processing":
+		_status_tag.visible = true
+		_status_label.text = "Aguarde"
+		_status_label.add_theme_color_override("font_color", Color.BLACK)
+		if _status_bg is StyleBoxFlat:
+			var color = Color.WHITE
+			_status_bg.bg_color = Color(color.r, color.g, color.b, 0.75) # 75% opacity
+			_status_bg.border_color = color # Solid border
+			_set_stylebox_radius(_status_bg, 50)
+			
+	elif status == "ready" or status == "ready_to_view":
+		_status_tag.visible = true
+		_status_label.text = "Visualizar"
+		_status_label.add_theme_color_override("font_color", Color.WHITE)
+		if _status_bg is StyleBoxFlat:
+			var color = Color.BLACK
+			_status_bg.bg_color = Color(color.r, color.g, color.b, 0.05) # 5% opacity
+			_status_bg.border_color = color # Solid border
+			_set_stylebox_radius(_status_bg, 50)
+
+func _set_stylebox_radius(sb: StyleBoxFlat, radius: int) -> void:
+	# Set radius for all corners
+	sb.corner_radius_top_left = radius
+	sb.corner_radius_top_right = radius
+	sb.corner_radius_bottom_right = radius
+	sb.corner_radius_bottom_left = radius
+	
+	# Enforce border width to prevent visual glitches
+	sb.border_width_left = 2
+	sb.border_width_top = 2
+	sb.border_width_right = 2
+	sb.border_width_bottom = 2
+	
+	# Ensure border is drawn on top
+	sb.draw_center = true
+	sb.set_expand_margin_all(0)
+
 func _update_buttons_state() -> void:
 	var status = _project_data.get("status", "created")
-	var is_ready = status == "ready"
+	var is_ready = status == "ready" or status == "ready_to_view"
 	
 	_open_btn.disabled = not is_ready
-	# For ButtonIcon (PanelContainer), "disabled" property might not exist or work visually
-	# We might need to modulate opacity or disable input
 	_set_button_icon_enabled(_download_btn, is_ready)
 	
 	# Delete is always enabled

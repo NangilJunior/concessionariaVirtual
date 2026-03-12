@@ -42,6 +42,8 @@ func _load_config() -> void:
 				_base_url = data["api_base_url"]
 
 func _check_for_unsynced_files() -> void:
+	_check_processing_projects()
+	
 	if _state == SyncState.SYNCING:
 		return
 		
@@ -77,33 +79,19 @@ func _check_for_unsynced_files() -> void:
 		_set_status("Sincronizado")
 
 func _scan_session(session_path: String) -> void:
-	# Check if session is fully synced (e.g. check for a .synced file or check all frames)
-	# For this implementation, we check individual frames that don't have a corresponding .synced marker
+	# Check if capture is complete (.ready exists) and not yet synced
+	var ready_marker = session_path + "/.ready"
+	var synced_marker = session_path + "/.synced"
 	
-	var dir := DirAccess.open(session_path)
-	if not dir: return
-	
-	# We look for metadata_*.json files
-	dir.list_dir_begin()
-	var file_name := dir.get_next()
-	while file_name != "":
-		if not dir.current_is_dir() and file_name.begins_with("metadata_") and file_name.ends_with(".json"):
-			var frame_index_str = file_name.trim_prefix("metadata_").trim_suffix(".json")
-			var synced_marker = session_path + "/frame_" + frame_index_str + ".synced"
-			
-			if not FileAccess.file_exists(synced_marker):
-				var image_path = session_path + "/frame_" + frame_index_str + ".png"
-				var meta_path = session_path + "/" + file_name
-				
-				if FileAccess.file_exists(image_path):
-					_queue.append({
-						"image": image_path,
-						"meta": meta_path,
-						"marker": synced_marker,
-						"session": session_path.get_file()
-					})
-		file_name = dir.get_next()
-	dir.list_dir_end()
+	if FileAccess.file_exists(ready_marker) and not FileAccess.file_exists(synced_marker):
+		var meta_path = session_path + "/metadata.json"
+		if FileAccess.file_exists(meta_path):
+			_queue.append({
+				"meta": meta_path,
+				"marker": synced_marker,
+				"session": session_path.get_file(),
+				"session_path": session_path
+			})
 
 func _start_sync() -> void:
 	_state = SyncState.SYNCING
@@ -120,36 +108,48 @@ func _upload_next() -> void:
 	var item = _queue[_current_upload_index]
 	emit_signal("sync_progress", _current_upload_index + 1, _queue.size())
 	
-	# Construct multipart request or simple JSON with base64
-	# For simplicity and robustness in Godot without plugins, we'll try to send JSON with Base64 image
-	# If the server requires multipart, we'd need to build the body manually with boundaries.
-	# Let's assume the server accepts a JSON payload with metadata and image_data.
+	ProjectManager.update_project_status(item["session"], "uploading")
 	
-	var meta_content = FileAccess.get_file_as_string(item["meta"])
-	var meta_json = JSON.parse_string(meta_content)
-	
-	var img_file = FileAccess.open(item["image"], FileAccess.READ)
-	var img_buffer = img_file.get_buffer(img_file.get_length())
-	var img_b64 = Marshalls.raw_to_base64(img_buffer)
-	
-	var payload = {
-		"session_id": item["session"],
-		"metadata": meta_json,
-		"image_data": img_b64
-	}
-	
+	var zip_path = item["session_path"] + "/upload.zip"
+	if not FileAccess.file_exists(zip_path):
+		var packer := ZIPPacker.new()
+		var err = packer.open(zip_path)
+		if err == OK:
+			packer.start_file("metadata.json")
+			packer.write_file(FileAccess.get_file_as_bytes(item["meta"]))
+			packer.close_file()
+			
+			var frames_dir = item["session_path"] + "/frames"
+			var dir = DirAccess.open(frames_dir)
+			if dir:
+				dir.list_dir_begin()
+				var file_name = dir.get_next()
+				while file_name != "":
+					if not dir.current_is_dir() and file_name.ends_with(".png"):
+						packer.start_file("frames/" + file_name)
+						packer.write_file(FileAccess.get_file_as_bytes(frames_dir + "/" + file_name))
+						packer.close_file()
+					file_name = dir.get_next()
+				dir.list_dir_end()
+			packer.close()
+			
+	if not FileAccess.file_exists(zip_path):
+		_handle_error("Falha ao criar ZIP")
+		return
+		
+	var zip_bytes = FileAccess.get_file_as_bytes(zip_path)
 	var headers = [
-		"Content-Type: application/json",
+		"Content-Type: application/zip",
+		"X-Session-ID: " + item["session"],
 		"Authorization: Bearer " + Auth.token()
 	]
 	
-	var url = _base_url + "/upload" # Adjust endpoint as needed
-	
-	var err = _http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(payload))
+	var url = _base_url + "/upload_session_zip" 
+	var err = _http.request_raw(url, headers, HTTPClient.METHOD_POST, zip_bytes)
 	if err != OK:
 		_handle_error("Erro ao iniciar request: " + str(err))
 
-func _on_upload_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_upload_completed(result: int, response_code: int, _headers: PackedStringArray, _body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS or response_code < 200 or response_code >= 300:
 		var msg = "Erro HTTP: " + str(response_code)
 		_handle_error(msg)
@@ -163,8 +163,11 @@ func _on_upload_completed(result: int, response_code: int, headers: PackedString
 	# Success
 	var item = _queue[_current_upload_index]
 	var f = FileAccess.open(item["marker"], FileAccess.WRITE)
-	f.store_string("synced")
-	f.close()
+	if f:
+		f.store_string("synced")
+		f.close()
+	
+	ProjectManager.update_project_status(item["session"], "processing")
 	
 	_current_upload_index += 1
 	_upload_next()
@@ -182,3 +185,58 @@ func _handle_error(msg: String) -> void:
 
 func _set_status(text: String) -> void:
 	emit_signal("status_changed", text)
+
+func _check_processing_projects() -> void:
+	if not Auth.is_authenticated():
+		return
+	
+	for p in ProjectManager.get_projects():
+		if p.get("status") == "processing":
+			_check_project_status(p["id"])
+
+func _check_project_status(session_id: String) -> void:
+	var url = _base_url + "/status/" + session_id
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(result: int, code: int, headers: PackedStringArray, body: PackedByteArray):
+		if result == HTTPRequest.RESULT_SUCCESS and code == 200:
+			var txt = body.get_string_from_utf8()
+			var data = JSON.parse_string(txt)
+			if data and typeof(data) == TYPE_DICTIONARY:
+				if data.get("status") == "ready" and data.has("ply_url"):
+					_download_ply(session_id, data.get("ply_url"))
+		http.queue_free()
+	)
+	var headers = ["Authorization: Bearer " + Auth.token()]
+	http.request(url, headers)
+
+func _download_ply(session_id: String, ply_url: String) -> void:
+	ProjectManager.update_project_status(session_id, "downloading")
+	var url = ply_url
+	var http = HTTPRequest.new()
+	add_child(http)
+	
+	var models_dir = "user://models"
+	if not DirAccess.dir_exists_absolute(models_dir):
+		DirAccess.make_dir_recursive_absolute(models_dir)
+		
+	var download_path = models_dir + "/" + session_id + ".ply"
+	http.download_file = download_path
+	
+	http.request_completed.connect(func(result: int, code: int, headers: PackedStringArray, body: PackedByteArray):
+		if result == HTTPRequest.RESULT_SUCCESS and code < 300:
+			var p = ProjectManager.get_project(session_id)
+			if not p.is_empty():
+				p["status"] = "ready_to_view"
+				p["ply_local_path"] = download_path
+				p["ply_url"] = ply_url
+				ProjectManager.save_projects()
+				ProjectManager.emit_signal("projects_updated")
+				_set_status("Splat pronto: " + session_id)
+		else:
+			ProjectManager.update_project_status(session_id, "processing") # back to processing to retry later
+		http.queue_free()
+	)
+	
+	var headers = ["Authorization: Bearer " + Auth.token()]
+	http.request(url, headers)

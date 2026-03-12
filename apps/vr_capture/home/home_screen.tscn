@@ -11,27 +11,27 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_1kvtv"]
 font = ExtResource("3_8h2if")
-font_size = 48
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujfsf"]
 font = ExtResource("4_xyvh2")
-font_size = 39
+font_size = 21
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iclfe"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 shadow_color = Color(0, 0, 0, 0.11764706)
-shadow_size = 20
-shadow_offset = Vector2(0, 8)
+shadow_size = 11
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0dr2"]
 font = ExtResource("7_xyvh2")
-font_size = 48
+font_size = 26
 font_color = Color(0.23753911, 0.23753914, 0.23753911, 1)
 
 [node name="HomeScreen" type="ColorRect" unique_id=500425076]
@@ -49,10 +49,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 26
 
 [node name="HBoxContainer" type="MarginContainer" parent="MarginContainer" unique_id=380889016]
 layout_mode = 2
@@ -72,7 +72,7 @@ layout_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=252682929]
 layout_mode = 2
-theme_override_constants/separation = 160
+theme_override_constants/separation = 88
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=999398231]
 layout_mode = 2
@@ -84,7 +84,7 @@ texture = ExtResource("2_uscf5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=1791745428]
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 6
 
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/VBoxContainer" unique_id=643243588]
 layout_mode = 2
@@ -102,7 +102,7 @@ horizontal_alignment = 1
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3" unique_id=1770560283]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 34
+theme_override_constants/separation = 19
 alignment = 1
 
 [node name="NewProject" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3" unique_id=485828052 instance=ExtResource("5_uscf5")]
@@ -117,7 +117,7 @@ size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_iclfe")
 
 [node name="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject" index="0" unique_id=256251667]
-theme_override_constants/margin_right = 235
+theme_override_constants/margin_right = 129
 
 [node name="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject/MarginContainer/VBoxContainer/BoxContainer" parent_id_path=PackedInt32Array(651506697, 1822361181) index="0" unique_id=2015975245]
 texture = ExtResource("6_8h2if")
@@ -127,7 +127,7 @@ text = "Meus Projetos"
 label_settings = SubResource("LabelSettings_o0dr2")
 
 [node name="Label3" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject/MarginContainer/VBoxContainer/VBoxContainer" parent_id_path=PackedInt32Array(651506697, 1941098198) index="1" unique_id=1914410710]
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 17
 text = "Abrir projetos"
 
 [editable path="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer3/HBoxContainer3/OpenProject"]

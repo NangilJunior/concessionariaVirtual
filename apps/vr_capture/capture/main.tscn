@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8t5or5j6y2jr"]
+[gd_scene load_steps=9 format=3 uid="uid://b8t5or5j6y2jr"]
 
 [ext_resource type="Script" uid="uid://drrvknas815hf" path="res://capture/xr_origin_3d.gd" id="1"]
 [ext_resource type="Script" uid="uid://p3plf7ofmst" path="res://capture/capture_manager.gd" id="2"]
@@ -7,6 +7,11 @@
 [ext_resource type="Script" uid="uid://dbevil6faoavm" path="res://capture/hud.gd" id="5"]
 [ext_resource type="Script" uid="uid://bku2qi2e8bt8j" path="res://capture/coverage_visualizer.gd" id="6"]
 [ext_resource type="Script" uid="uid://nptbb7fkdufq" path="res://capture/path_guide.gd" id="7"]
+
+[sub_resource type="Environment" id="Environment_passthrough"]
+background_mode = 1
+background_color = Color(0, 0, 0, 0)
+
 
 [node name="Root" type="Node3D" unique_id=421191721]
 script = ExtResource("2")
@@ -27,6 +32,9 @@ script = ExtResource("6")
 
 [node name="PathGuide" type="Node3D" parent="." unique_id=899273477]
 script = ExtResource("7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=112233445]
+environment = SubResource("Environment_passthrough")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=440765604]
 script = ExtResource("5")

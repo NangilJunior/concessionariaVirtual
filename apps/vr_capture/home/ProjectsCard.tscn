@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://hfv6j6h0n3dk"]
+[gd_scene load_steps=17 format=3 uid="uid://hfv6j6h0n3dk"]
 
-[ext_resource type="Script" path="res://home/ProjectsCard.gd" id="1_xhf5p"]
+[ext_resource type="Script" uid="uid://cif1t58jqgye1" path="res://home/ProjectsCard.gd" id="1_xhf5p"]
 [ext_resource type="Texture2D" uid="uid://cp1uvbhut437k" path="res://login/components/image.png" id="2_favon"]
 [ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="3_mod1l"]
 [ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="4_favon"]
@@ -10,26 +10,36 @@
 [ext_resource type="Texture2D" uid="uid://ctn8wfxdmtyeb" path="res://login/components/iconDownload.svg" id="8_t52sj"]
 [ext_resource type="Texture2D" uid="uid://m22h61mquin" path="res://login/components/iconTrash.svg" id="9_lhl3u"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_root_card"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.11764706)
+shadow_size = 11
+shadow_offset = Vector2(0, 4)
+
 [sub_resource type="LabelSettings" id="LabelSettings_mod1l"]
 font = ExtResource("3_mod1l")
-font_size = 39
+font_size = 21
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_t52sj"]
 font = ExtResource("4_favon")
-font_size = 25
+font_size = 14
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhl3u"]
-content_margin_left = 80.0
-content_margin_top = 20.0
-content_margin_right = 80.0
-content_margin_bottom = 20.0
+content_margin_left = 32.0
+content_margin_top = 10.0
+content_margin_right = 32.0
+content_margin_bottom = 10.0
 bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mod1l"]
 bg_color = Color(1, 1, 1, 1)
@@ -38,30 +48,31 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.7204674, 0.72046757, 0.7204672, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_root_card"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.11764706)
-shadow_size = 20
-shadow_offset = Vector2(0, 8)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_status"]
+bg_color = Color(1, 1, 1, 0.7294118)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+corner_detail = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clipper"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="LabelSettings" id="LabelSettings_status"]
+font = ExtResource("3_mod1l")
+font_size = 13
+font_color = Color(0, 0, 0, 1)
 
 [node name="ClickableCard" type="PanelContainer" unique_id=2123131438]
-custom_minimum_size = Vector2(702, 0)
+custom_minimum_size = Vector2(385, 0)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_root_card")
@@ -71,10 +82,10 @@ metadata/_custom_type_script = "uid://qqy2gaoxgqx3"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1114503063]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 18
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=1748109867]
-custom_minimum_size = Vector2(702, 357)
+custom_minimum_size = Vector2(385, 196)
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("2_favon")
@@ -83,8 +94,8 @@ expand_mode = 1
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=791338302]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_right = 22
 theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer" unique_id=1498657843]
@@ -105,13 +116,13 @@ autowrap_mode = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2" unique_id=1229199035]
 layout_mode = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_right = 22
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer3" unique_id=666921415]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 9
 alignment = 1
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer2/MarginContainer3/HBoxContainer" unique_id=610306468]
@@ -133,18 +144,18 @@ autowrap_mode = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2" unique_id=490906067]
 layout_mode = 2
-theme_override_constants/margin_left = 40
-theme_override_constants/margin_right = 40
-theme_override_constants/margin_bottom = 40
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer2" unique_id=1509930290]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 
 [node name="CreateProject" parent="VBoxContainer2/MarginContainer2/HBoxContainer" unique_id=1370451158 instance=ExtResource("5_lhl3u")]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_lhl3u")
 text = "Abrir"
 
@@ -155,8 +166,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mod1l")
 [node name="MarginContainer" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton" index="0" unique_id=88061162]
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
 
 [node name="TextureRect" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton/MarginContainer" index="0" unique_id=1995278263]
 texture = ExtResource("8_t52sj")
@@ -168,11 +179,39 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mod1l")
 [node name="MarginContainer" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton2" index="0" unique_id=88061162]
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_right = 14
 
 [node name="TextureRect" parent="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton2/MarginContainer" index="0" unique_id=1995278263]
 texture = ExtResource("9_lhl3u")
+
+[node name="StatusOverlay" type="MarginContainer" parent="." unique_id=1538006925]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 11
+
+[node name="StatusTag" type="PanelContainer" parent="StatusOverlay" unique_id=1552646179]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_status")
+
+[node name="MarginContainer" type="MarginContainer" parent="StatusOverlay/StatusTag" unique_id=2043948935]
+layout_mode = 2
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 11
+theme_override_constants/margin_bottom = 4
+
+[node name="StatusLabel" type="Label" parent="StatusOverlay/StatusTag/MarginContainer" unique_id=439825690]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Aguarde"
+label_settings = SubResource("LabelSettings_status")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="VBoxContainer2/MarginContainer2/HBoxContainer/CreateProject"]
 [editable path="VBoxContainer2/MarginContainer2/HBoxContainer/BacktButton"]

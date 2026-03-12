@@ -8,28 +8,40 @@ var _guidance_label: Label
 var _recording: bool = false
 var _frames: int = 0
 
+const CaptureGuideModal = preload("res://capture/CaptureGuideModal.tscn")
+
+var _guide_modal: Control
+
 func _ready() -> void:
 	var root := Control.new()
 	add_child(root)
 	root.anchors_preset = Control.PRESET_FULL_RECT
 	_status_label = Label.new()
 	root.add_child(_status_label)
-	_status_label.position = Vector2(20, 20)
+	_status_label.position = Vector2(11, 11)
 	_speed_label = Label.new()
 	root.add_child(_speed_label)
-	_speed_label.position = Vector2(20, 50)
+	_speed_label.position = Vector2(11, 27)
 	_frames_label = Label.new()
 	root.add_child(_frames_label)
-	_frames_label.position = Vector2(20, 80)
+	_frames_label.position = Vector2(11, 44)
 	_guidance_label = Label.new()
 	root.add_child(_guidance_label)
-	_guidance_label.position = Vector2(20, 110)
+	_guidance_label.position = Vector2(11, 60)
 	_warning_rect = ColorRect.new()
 	root.add_child(_warning_rect)
 	_warning_rect.color = Color(1, 0, 0, 0.2)
 	_warning_rect.visible = false
 	_warning_rect.anchors_preset = Control.PRESET_FULL_RECT
+	
+	# Instantiate Guide Modal
+	_guide_modal = CaptureGuideModal.instantiate()
+	add_child(_guide_modal)
+	
 	_update_labels()
+
+func get_guide_modal() -> Control:
+	return _guide_modal
 
 func set_status(text: String) -> void:
 	_status_label.text = text
@@ -59,11 +71,19 @@ func _on_sync_status_changed(text: String) -> void:
 	if not has_node("Control/SyncLabel"):
 		var l = Label.new()
 		l.name = "SyncLabel"
-		$Control.add_child(l)
-		l.position = Vector2(20, 140)
-		l.add_theme_color_override("font_color", Color.CYAN)
+		# Check if Control exists (it's created in _ready as 'root' but not assigned to a var)
+		# We need to find it. 'root' is the first child added.
+		var control_node = get_child(0)
+		if control_node is Control:
+			control_node.add_child(l)
+			l.position = Vector2(11, 77)
+			l.add_theme_color_override("font_color", Color.CYAN)
 	
-	get_node("Control/SyncLabel").text = "Sync: " + text
+	if has_node("Control/SyncLabel"): # Path might be wrong if 'root' is not named 'Control'
+		# Let's just find it by name if we added it
+		var l = find_child("SyncLabel", true, false)
+		if l:
+			l.text = "Sync: " + text
 
 func _enter_tree() -> void:
 	# Connect to SyncManager if available (it's an autoload)

@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://ikprxo5m3w7p"]
+
+[ext_resource type="Script" uid="uid://dh2pisy6nrvgl" path="res://capture/CaptureGuideModal.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dd4w83gmuppx" path="res://assets/steps1.png" id="2_4dx1p"]
+[ext_resource type="FontFile" uid="uid://b70n1vqujl8ag" path="res://assets/fonts/Roboto-Bold.ttf" id="2_font_bold"]
+[ext_resource type="FontFile" uid="uid://b145u8fxfb54p" path="res://assets/fonts/Roboto-Regular.ttf" id="3_font_reg"]
+[ext_resource type="Texture2D" uid="uid://dwjwiqlg2mvqx" path="res://assets/steps2.png" id="3_fw5io"]
+[ext_resource type="Texture2D" uid="uid://dl4v1b2tqcyw1" path="res://assets/steps3.png" id="4_84u1h"]
+[ext_resource type="PackedScene" uid="uid://bfwy6vt5to2qj" path="res://login/components/button.tscn" id="4_btn"]
+[ext_resource type="PackedScene" uid="uid://c0851y4h5tsra" path="res://home/CreateProjectWhite.tscn" id="5_whitebtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(1, 1, 1, 0.9019608)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+shadow_color = Color(0, 0, 0, 0.2)
+shadow_size = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_font_bold")
+font_size = 26
+font_color = Color(0.033853278, 0.033853278, 0.033853274, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_desc"]
+font = ExtResource("3_font_reg")
+font_size = 21
+font_color = Color(0.14044741, 0.14044747, 0.14044735, 1)
+
+[node name="CaptureGuideModal" type="Control" unique_id=1369156354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="FullMode" type="PanelContainer" parent="." unique_id=1001]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -245.0
+offset_right = 190.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="FullMode" unique_id=183854073]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 44
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FullMode/MarginContainer" unique_id=1361759249]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="Step 1" type="TextureRect" parent="FullMode/MarginContainer/VBoxContainer" unique_id=2105234231]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_4dx1p")
+
+[node name="Step 2" type="TextureRect" parent="FullMode/MarginContainer/VBoxContainer" unique_id=1644668043]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_fw5io")
+
+[node name="Step 3" type="TextureRect" parent="FullMode/MarginContainer/VBoxContainer" unique_id=208939216]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_84u1h")
+
+[node name="Spacer2" type="Control" parent="FullMode/MarginContainer/VBoxContainer" unique_id=1970248437]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="FullMode/MarginContainer/VBoxContainer" unique_id=1002]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
+text = "Mapeamento"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="DescLabel" type="Label" parent="FullMode/MarginContainer/VBoxContainer" unique_id=1003]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Realize o mapeamento da área de interesse ou do produto que será digitalizado."
+label_settings = SubResource("LabelSettings_desc")
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="FullMode/MarginContainer/VBoxContainer" unique_id=1211740942]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="FullMode/MarginContainer/VBoxContainer" unique_id=837018963]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="MinimizeButton" parent="FullMode/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1091405023 instance=ExtResource("5_whitebtn")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Iniciar"
+
+[node name="ActionButton" parent="FullMode/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1151517694 instance=ExtResource("4_btn")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Próxima"
+
+[node name="MinimizedMode" type="Control" parent="." unique_id=1006]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RestoreButton" parent="MinimizedMode" unique_id=528428524 instance=ExtResource("4_btn")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -82.0
+offset_right = 55.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Abrir Guia"

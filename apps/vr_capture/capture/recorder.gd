@@ -2,13 +2,26 @@ extends Node
 
 var session_id: String = ""
 var frame_count: int = 0
+var _session_metadata: Array = []
 
 func start_session() -> void:
 	session_id = str(Time.get_unix_time_from_system())
 	frame_count = 0
+	_session_metadata.clear()
 
 func end_session() -> void:
-	pass
+	if _session_metadata.size() > 0:
+		var meta_dir := "user://captures/%s" % session_id
+		var file_path := "%s/metadata.json" % meta_dir
+		var f := FileAccess.open(file_path, FileAccess.WRITE)
+		if f:
+			f.store_string(JSON.stringify(_session_metadata))
+		
+		# Flag indicating session is ready for upload
+		var ready_path := "%s/.ready" % meta_dir
+		var rf := FileAccess.open(ready_path, FileAccess.WRITE)
+		if rf:
+			rf.store_string("ready")
 
 func capture_frame(viewport: Viewport, camera: Camera3D, pose: Transform3D) -> void:
 	var dir := "user://captures/%s/frames" % session_id
@@ -20,8 +33,6 @@ func capture_frame(viewport: Viewport, camera: Camera3D, pose: Transform3D) -> v
 	frame_count += 1
 
 func _save_metadata(camera: Camera3D, pose: Transform3D, index: int, image_path: String) -> void:
-	var meta_dir := "user://captures/%s" % session_id
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(meta_dir))
 	var size := DisplayServer.window_get_size()
 	var h := float(size.y)
 	var w := float(size.x)
@@ -48,8 +59,4 @@ func _save_metadata(camera: Camera3D, pose: Transform3D, index: int, image_path:
 		"intrinsics": k,
 		"pose": p
 	}
-	# Corrige variável ausente: file_path
-	var file_path := "%s/metadata_%05d.json" % [meta_dir, index]
-	var f := FileAccess.open(file_path, FileAccess.WRITE)
-	if f:
-		f.store_string(JSON.stringify(entry))
+	_session_metadata.append(entry)

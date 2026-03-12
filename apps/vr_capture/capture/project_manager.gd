@@ -5,6 +5,7 @@ signal projects_updated
 const SAVE_PATH = "user://projects.json"
 
 var _projects: Array = []
+var current_project: Dictionary = {}
 
 func _ready() -> void:
 	load_projects()
@@ -20,6 +21,7 @@ func create_project(title: String, description: String) -> Dictionary:
 		"ply_url": ""
 	}
 	_projects.append(project)
+	current_project = project # Set as current
 	save_projects()
 	emit_signal("projects_updated")
 	return project

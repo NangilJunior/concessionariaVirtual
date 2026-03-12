@@ -8,13 +8,47 @@ extends Node3D
 @onready var hud: CanvasLayer = $HUD
 
 var capturing: bool = false
-var capture_interval_sec: float = 0.5
+var capture_interval_sec: float = 0.1 # Aumentado para 10 FPS para Gaussian Splatting
 var _capture_timer: float = 0.0
 
 func _ready() -> void:
 	hud.call("set_status", "Pronto para capturar")
 	path_guide.call("setup", xr_camera.global_transform.origin)
 	coverage.call("reset")
+	
+	# Connect to Guide Modal
+	var modal = hud.call("get_guide_modal")
+	if modal:
+		modal.step_started.connect(_on_step_started)
+		modal.step_completed.connect(_on_step_completed)
+		modal.capture_finished.connect(_on_capture_finished)
+
+func _on_step_started(step_index: int) -> void:
+	print("Step started: ", step_index)
+	match step_index:
+		0: # Mapping
+			hud.call("set_status", "Mapeando área...")
+			# Enable grid/mapping visualizer here
+		1: # Capture
+			start_capture()
+		2: # Detailing
+			hud.call("set_status", "Capturando detalhes...")
+			# Change visualizer color or mode
+
+func _on_step_completed(step_index: int) -> void:
+	print("Step completed: ", step_index)
+
+func _on_capture_finished() -> void:
+	print("Capture finished")
+	stop_capture()
+	
+	# Update project status
+	if not ProjectManager.current_project.is_empty():
+		ProjectManager.update_project_status(ProjectManager.current_project["id"], "processing")
+	
+	# Navigate to Project List
+	get_tree().change_scene_to_file("res://home/project_list_screen.tscn")
+
 
 func start_capture() -> void:
 	capturing = true

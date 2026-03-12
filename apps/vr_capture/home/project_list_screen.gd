@@ -75,7 +75,8 @@ func _on_cancel_delete() -> void:
 
 func _on_open_requested(project_id: String) -> void:
 	print("Open requested for: ", project_id)
-	# Logic to open project (e.g. load capture scene with data)
+	ProjectManager.current_project = ProjectManager.get_project(project_id)
+	get_tree().change_scene_to_file("res://viewer/splat_viewer.tscn")
 
 func _on_download_requested(project_id: String) -> void:
 	print("Download requested for: ", project_id)

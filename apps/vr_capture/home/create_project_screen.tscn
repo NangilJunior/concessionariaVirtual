@@ -14,12 +14,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_a84un"]
 font = ExtResource("4_exa2t")
-font_size = 48
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2620u"]
 font = ExtResource("5_w825x")
-font_size = 39
+font_size = 21
 font_color = Color(0.55495375, 0.5549537, 0.5549537, 1)
 
 [node name="NewProject" type="Control" unique_id=589774738]
@@ -46,10 +46,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 48
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 26
 
 [node name="HBoxContainer" type="MarginContainer" parent="MarginContainer" unique_id=258502042]
 layout_mode = 2
@@ -71,16 +71,16 @@ texture = ExtResource("3_8tu1x")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=946527908]
 layout_mode = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_right = 110
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1562555597]
 layout_mode = 2
-theme_override_constants/separation = 128
+theme_override_constants/separation = 70
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=409942024]
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 6
 
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer" unique_id=1378155875]
 layout_mode = 2
@@ -96,11 +96,11 @@ autowrap_mode = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=1605241759]
 layout_mode = 2
-theme_override_constants/separation = 48
+theme_override_constants/separation = 26
 
 [node name="Email" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=455845066 instance=ExtResource("6_d05wa")]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 13
 
 [node name="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/Email" index="0" unique_id=224146460]
 text = "Nome do Projeto*"
@@ -110,17 +110,17 @@ placeholder_text = "Digite o nome do projeto"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2" unique_id=693091617]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 13
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer" unique_id=1600771768]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_w825x")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 22
 text = "Descrição (opcional)"
 
 [node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/VBoxContainer2/VBoxContainer" unique_id=1809597919]
-custom_minimum_size = Vector2(0, 288)
+custom_minimum_size = Vector2(0, 158)
 layout_mode = 2
 theme_override_colors/search_result_color = Color(0.3, 0.3, 0.3, 1)
 theme_override_colors/search_result_border_color = Color(0.3, 0.3, 0.3, 0.4)
@@ -128,7 +128,7 @@ theme_override_colors/caret_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/selection_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_colors/font_color = Color(0.00069390074, 0.0006938965, 0.0006938975, 1)
 theme_override_fonts/font = ExtResource("7_w825x")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = ExtResource("8_d05wa")
 theme_override_styles/focus = ExtResource("9_a84un")
 placeholder_text = "Descreva o objetivo deste projeto..."
@@ -136,7 +136,7 @@ wrap_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3" unique_id=29220972]
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 13
 alignment = 2
 
 [node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer3/HBoxContainer" unique_id=1370451158 instance=ExtResource("10_d05wa")]

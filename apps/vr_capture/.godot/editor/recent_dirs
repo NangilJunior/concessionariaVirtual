@@ -1,6 +1,6 @@
-res://assets
-res://login/components
-res://home
-res://login
-res://capture
-/home/nangil/Documentos/Godot/concessionariaVirtual/apps/vr_capture
+/mnt/Games/VR Share/VRCapture/
+res://assets/
+res://login/components/
+res://home/
+res://login/
+res://capture/

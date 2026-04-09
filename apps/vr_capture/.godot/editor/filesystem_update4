@@ -1,5 +1,10 @@
-res://home/project_list_screen.tscn
-res://openxr_action_map.tres
-res://home/create_project_screen.gd
-res://home/project_list_screen.gd
-res://home/ProjectsCard.gd
+res://capture/xr_origin_3d.gd
+res://home/buttonIcon.tscn
+res://home/CreateProjectWhite.tscn
+res://login/components/button.tscn
+res://capture/CaptureGuideModal.tscn
+res://capture/hud.gd
+res://home/ProjectsCard.tscn
+res://login/components/buttonDefautl.tres
+res://login/components/buttonHover.tres
+res://login/components/buttonPressed.tres
